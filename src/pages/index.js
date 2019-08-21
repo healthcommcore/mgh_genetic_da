@@ -14,9 +14,9 @@ const IndexPage = ({ data }) => {
       <h1>{ pageElements.title }</h1>
       <p>Welcome to your new Gatsby site.</p>
       <h2>Key facts</h2>
-      { setHTML(pageElements.field_key_facts.processed) }
+      {/* setHTML(pageElements.field_key_facts.processed) */}
       <h2>Introduction</h2>
-      { setHTML(pageElements.body.processed) }
+      {/* setHTML(pageElements.body.processed) */}
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
         <Image />
       </div>
