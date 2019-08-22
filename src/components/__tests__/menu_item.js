@@ -8,11 +8,5 @@ describe("Menu item", () => {
     const tree = renderer.create(<MenuItem data={ data } />).toJSON();
     expect(tree).toMatchSnapshot();
   });
-
-  it("does not render correctly", () => {
-    const data = { name: "Test menu item" };
-    const tree = renderer.create(<MenuItem data={ data } />).toJSON();
-    expect(tree).not.toMatchSnapshot();
-  });
 });
     
