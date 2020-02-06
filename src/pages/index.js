@@ -11,17 +11,8 @@ const IndexPage = ({ data }) => {
   const items = data.allMenuLinkContentMenuLinkContent.edges;
   return (
     <Layout>
-      <ProgressMenuItems />
       <SEO title="Welcome" />
       <p>Welcome to your new Gatsby site.</p>
-      <ul>
-        { items.map( (item, i) => {
-          return (
-            <li key={ i }>{ item.node.title }</li>
-          );
-        })}
-      </ul>
-      <Link to="/page-2/">Go to page 2</Link>
     </Layout>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql, Link } from "gatsby";
 import MenuItem from "./menu_item";
+import Nav from "react-bootstrap/Nav";
 
 /**
  * Accepts data param obtained as result from ProgressMenuItems' StaticQuery
@@ -11,7 +12,7 @@ import MenuItem from "./menu_item";
 const MenuItems = ({ data }) => {
   const items = data.allMenuLinkContentMenuLinkContent.edges;
   return (
-    <ul>
+    <Nav>
     { items.map( (item, i) => {
         return (
           <MenuItem 
@@ -21,7 +22,7 @@ const MenuItems = ({ data }) => {
         );
       })
     }
-    </ul>
+    </Nav>
   );
 }
 
