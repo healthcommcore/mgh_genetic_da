@@ -31,6 +31,10 @@ module.exports = {
       resolve: `gatsby-source-drupal`,
       options: {
         baseUrl: `http://api.geneticda.hccstaging.com`,
+        basicAuth: {
+          username: 'gatsbyclient',
+          password: 'LiueIUbfeu&3987Hfeal2'
+        }
       }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

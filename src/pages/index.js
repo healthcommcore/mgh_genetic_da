@@ -1,25 +1,26 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { setHTML } from "../helpers/helpers";
+import { setHTML, getNodeId } from "../helpers/helpers";
 
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import ProgressMenuItems from "../components/progress_menu_items";
 
 const IndexPage = ({ data }) => {
-  const pageElements = data.allNodeLandingPage.nodes[0];
+  const items = data.allMenuLinkContentMenuLinkContent.edges;
   return (
     <Layout>
-      <SEO title="Home" />
-      <h1>{ pageElements.title }</h1>
+      <ProgressMenuItems />
+      <SEO title="Welcome" />
       <p>Welcome to your new Gatsby site.</p>
-      <h2>Key facts</h2>
-      {/* setHTML(pageElements.field_key_facts.processed) */}
-      <h2>Introduction</h2>
-      {/* setHTML(pageElements.body.processed) */}
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
-      </div>
+      <ul>
+        { items.map( (item, i) => {
+          return (
+            <li key={ i }>{ item.node.title }</li>
+          );
+        })}
+      </ul>
       <Link to="/page-2/">Go to page 2</Link>
     </Layout>
   );
@@ -29,23 +30,13 @@ export default IndexPage;
 
 export const query = graphql`
   query {
-    allNodeLandingPage(filter: {
-      relationships: {
-        field_da_section: {
-          name: {
-            eq: "Introduction"
+    allMenuLinkContentMenuLinkContent {
+      edges {
+        node {
+          title
+          link {
+            uri
           }
-        }
-      }
-    }) {
-      nodes {
-        title
-        field_key_facts {
-          processed
-          value
-        }
-        body {
-          processed
         }
       }
     }

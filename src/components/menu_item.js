@@ -1,40 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql, Link } from "gatsby";
+import { urlify, getNodeId } from "../helpers/helpers";
 
-export const PureMenuItem = ({ data }) => {
+const MenuItem = ({ name, url }) => {
+  const path = urlify(name);
+  const nodeId = getNodeId(url);
   return (
-    <Link to={ data.path }>
-      { data.name }
-    </Link>
+    <li>
+      <Link to={ path } nodeId={ nodeId }>
+        { name }
+      </Link>
+    </li>
   );
 }
 
-export const MenuItem = (props) => {
-  return (
-    <StaticQuery
-      query={ graphql`
-        query {
-          allTaxonomyTermDaSection {
-            nodes {
-              name
-            }
-          }
-        }
-      `}
-      render={ data => <PureMenuItem {...props} data={ data } /> }
-    />
-  );
+MenuItem.propTypes = {
+  name: PropTypes.string,
+  url: PropTypes.string
 }
 
-PureMenuItem.propTypes = {
-  path: PropTypes.string,
-  name: PropTypes.string
-}
-
-PureMenuItem.defaultProps = {
-  path: "#",
-  name: "Menu item"
+MenuItem.defaultProps = {
+  name: "Menu item",
+  url: "#"
 }
 
 export default MenuItem;
