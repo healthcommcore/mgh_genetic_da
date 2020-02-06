@@ -1,15 +1,37 @@
 import React from "react";
 import { graphql } from "gatsby";
 import PageTemplate from "../components/page_template";
+import Layout from "../components/layout";
+import { setHTML } from "../helpers/helpers";
 
-const Welcome = () => {
+const Welcome = ({ data }) => {
+	const content = data.nodeDecisionAidPage;
   return (
-    <PageTemplate>
-      <div className="body">
-        This is body text
-      </div>
-    </PageTemplate>
+		<Layout>
+			<PageTemplate>
+				<div className="body">
+				{ setHTML(content.body.processed) }	
+				</div>
+			</PageTemplate>
+		</Layout>
   );
 }
+
+
+export const query = graphql`
+  query {
+  	nodeDecisionAidPage {
+			title
+			relationships {
+				field_video {
+					status
+				}
+			}
+			body {
+				processed
+			}
+		} 
+	}
+`
 
 export default Welcome;

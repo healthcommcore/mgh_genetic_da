@@ -6,13 +6,13 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import ProgressMenuItems from "../components/progress_menu_items";
+import Welcome from "./welcome";
 
 const IndexPage = ({ data }) => {
   const items = data.allMenuLinkContentMenuLinkContent.edges;
   return (
     <Layout>
       <SEO title="Welcome" />
-      <p>Welcome to your new Gatsby site.</p>
     </Layout>
   );
 }
