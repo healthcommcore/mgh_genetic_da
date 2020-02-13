@@ -1,7 +1,6 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import ProgressMenuItems from "./progress_menu_items";
 
 const Header = ({ siteTitle }) => (
   <header>
@@ -24,7 +23,6 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
     </div>
-    <ProgressMenuItems />
   </header>
 )
 

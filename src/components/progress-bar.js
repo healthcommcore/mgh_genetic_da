@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql, Link } from "gatsby";
-import MenuItem from "./menu_item";
+import MenuItem from "./menu-item";
 import Nav from "react-bootstrap/Nav";
 
 /**
@@ -11,9 +11,11 @@ import Nav from "react-bootstrap/Nav";
  */
 const MenuItems = ({ data }) => {
   const items = data.allMenuLinkContentMenuLinkContent.edges;
+  const order = getOrder(items);
+  const reordered = reOrder(order, items);
   return (
     <Nav>
-    { items.map( (item, i) => {
+    { reordered.map( (item, i) => {
         return (
           <MenuItem 
             name={ item.node.title }
@@ -24,6 +26,26 @@ const MenuItems = ({ data }) => {
     }
     </Nav>
   );
+}
+
+const getOrder = (items) => {
+  const order = []
+  items.forEach( (item) => {
+    order.push(item.node.weight);
+  });
+  return order.sort().reverse();
+}
+
+const reOrder = (order, items) => {
+  const reordered = [];
+  order.forEach( (num) => {
+    items.forEach( (item) => {
+      if(item.node.weight === num) {
+        reordered.push(item);
+      }
+    });
+  });
+  return reordered;
 }
 
 /** 
@@ -40,6 +62,7 @@ const ProgressMenuItems = (props) => {
             edges {
               node {
                 title
+                weight
                 link {
                   uri
                 }
