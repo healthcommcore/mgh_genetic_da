@@ -9,7 +9,7 @@ const getNodeId = (str) => {
 }
 
 const urlify = (name) => {
-  return name.toLowerCase().replace(" ", "-");
+  return name.toLowerCase().replace(/\ /g, "-");
 }
 
 export { setHTML, getNodeId, urlify };
