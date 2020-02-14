@@ -13,26 +13,25 @@ const PageTemplate = ({ data }) => {
       <PageTitle>
         { node.title }
       </PageTitle>
-      { getTextContent(node.field_intro_content) }
-      { getContent(node.body) }
-      { getTextContent(node.field_outro_content) }
+      <PageBody
+        intro={ node.field_intro_text }
+        body={ node.body }
+        outro={ node.field_outro_text }
+        relationships={ node.relationships }
+      />
     </div>
   );
 }
 
-const getContent = (content) => {
-  return (content !== null ? setHTML(content.processed) : "" );
-}
-
-const getTextContent = (content) => {
-  return (typeof content !== "undefined" ? setHTML(content.processed) : "" );
-}
 
 export const query = graphql`
   query($id: String!) {
     nodeDecisionAidPage(id: {eq: $id} ) {
       title
       body {
+        processed
+      }
+      field_outro_text {
         processed
       }
     }

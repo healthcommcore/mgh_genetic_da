@@ -12,5 +12,8 @@ const urlify = (name) => {
   return name.toLowerCase().replace(/\ /g, "-");
 }
 
-export { setHTML, getNodeId, urlify };
-    
+const exists = (content) => {
+  return content != null && typeof content !== "undefined";
+}
+
+export { setHTML, getNodeId, urlify, exists };
