@@ -20,6 +20,7 @@ const MenuItems = ({ data }) => {
           <MenuItem 
             name={ item.node.title }
             url={ item.node.link.uri }
+            key={ i }
           />
         );
       })

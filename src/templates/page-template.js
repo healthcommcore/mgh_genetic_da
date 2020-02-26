@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { setHTML } from "../helpers/helpers";
 import Header from "../components/header";
 import PageTitle from "../components/page-title";
 import PageBody from "../components/page-body";
@@ -17,7 +16,7 @@ const PageTemplate = ({ data }) => {
         intro={ node.field_intro_text }
         body={ node.body }
         outro={ node.field_outro_text }
-        relationships={ node.relationships }
+        complexContent={ node.relationships }
       />
     </div>
   );
@@ -33,6 +32,24 @@ export const query = graphql`
       }
       field_outro_text {
         processed
+      }
+      relationships {
+        field_accordions {
+          field_accordion_heading
+          field_accordion_body {
+            processed
+          }
+        }
+        field_values {
+          field_value_heading
+          field_right_text
+          field_left_text
+        }
+        field_video {
+          uri {
+            url
+          }
+        }
       }
     }
   }

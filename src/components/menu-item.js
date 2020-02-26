@@ -9,7 +9,7 @@ const MenuItem = ({ name, url }) => {
   const nodeId = getNodeId(url);
   return (
     <Nav.Item>
-      <Nav.Link as={ Link } to={ path } nodeId={ nodeId }>
+      <Nav.Link as={ Link } to={ path } nodeid={ nodeId }>
         { name }
       </Nav.Link>
     </Nav.Item>
