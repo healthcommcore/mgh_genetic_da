@@ -42,8 +42,8 @@ export const query = graphql`
         }
         field_values {
           field_value_heading
-          field_right_text
-          field_left_text
+          field_r
+          field_l
         }
         field_video {
           uri {
