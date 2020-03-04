@@ -2,13 +2,24 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
+import { connect } from "react-redux";
 
-const Login = ({ data }) => {
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUser: (e) => {
+      e.preventDefault();
+      console.log(e.target.value);
+      //dispatch()
+    }
+  }
+}
+
+const Login = ({ data, setUser }) => {
   const cancers = data.allTaxonomyTermCancerType.edges;
   const sites = data.allTaxonomyTermSites.edges;
   return (
     <Container>
-      <Form className="login">
+      <Form className="login" onSubmit={ setUser }>
         <Form.Group controlId="patientID">
           <Form.Label>Enter patient ID</Form.Label>
           <Form.Control size="lg" type="text" />
@@ -60,4 +71,4 @@ export const query = graphql`
   }
 `
 
-export default Login;
+export default connect(mapDispatchToProps)(Login);

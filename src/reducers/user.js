@@ -7,7 +7,7 @@ const initialState = {
 
 const user = (state = initialState, action) => {
   switch(action.type) {
-    case "SET_USER":
+    case `SET_USER`:
       return Object.assign({}, state, action.userInfo);
     default:
       return state;
