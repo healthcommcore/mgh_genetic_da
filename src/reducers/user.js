@@ -1,5 +1,7 @@
 const initialState = { 
-  user: {}, 
+  userid: "", 
+  cancerType: "",
+  site: "",
   values: {},
   testChoice: "",
   testOption: ""
@@ -8,7 +10,7 @@ const initialState = {
 const user = (state = initialState, action) => {
   switch(action.type) {
     case `SET_USER`:
-      return Object.assign({}, state, action.userInfo);
+      return Object.assign({}, state, { ...action.userInfo });
     default:
       return state;
   }

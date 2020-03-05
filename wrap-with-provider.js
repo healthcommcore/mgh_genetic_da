@@ -1,14 +1,13 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import user from "./src/reducers/user";
+
+import reducer from "./src/reducers";
 
 const store = createStore(
-  user
-  /*
-  user,
+  //reducer
+  reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  */
 );
 
 export default ({ element }) => {

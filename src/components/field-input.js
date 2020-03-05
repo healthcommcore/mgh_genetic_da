@@ -10,7 +10,7 @@ const FieldInput = ({ input, meta, type, size, as, ...props }) => {
       size={ size }
       as={ as }
     >
-    { props.children }
+      { props.children }
     </Form.Control>
   );
 }
