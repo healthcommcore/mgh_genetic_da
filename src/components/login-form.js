@@ -12,7 +12,6 @@ let LoginForm = ({ cancers, sites, handleSubmit }) => {
         <Form.Group controlId="patientID">
           <Form.Label>Enter patient ID</Form.Label>
           <Field name="userid" component={ FieldInput } />
-          {/*<Form.Control size="lg" type="text" />*/}
 
         </Form.Group>
         <Form.Group controlId="cancerType">
