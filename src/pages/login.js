@@ -12,6 +12,7 @@ import { connect } from "react-redux";
 import { reduxForm } from "redux-form";
 import LoginForm from "../components/login-form";
 import { setUser } from "../actions";
+import { navigate } from "gatsby";
 
 const mapStateToProps = (state) => {
   return { user: state.user };
@@ -20,8 +21,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setUser: (values) => {
-      //console.log(dispatch);
-      dispatch( setUser(values) );
+      if (Object.entries(values).length == 3) {
+        dispatch( setUser(values) );
+        navigate("/welcome");
+      }
     }
   }
 }
