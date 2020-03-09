@@ -12,7 +12,7 @@ import { connect } from "react-redux";
 import { reduxForm } from "redux-form";
 import LoginForm from "../components/login-form";
 import { setUser } from "../actions";
-import { navigate } from "gatsby";
+import { navigate, graphql } from "gatsby";
 
 const mapStateToProps = (state) => {
   return { user: state.user };
@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch) => {
     setUser: (values) => {
       if (Object.entries(values).length == 3) {
         dispatch( setUser(values) );
-        navigate("/welcome");
+        navigate("/entrance");
       }
     }
   }

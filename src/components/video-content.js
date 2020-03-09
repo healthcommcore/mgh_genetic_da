@@ -1,5 +1,5 @@
 import React from "react";
-import { exists } from "../helpers/helpers";
+import { exists } from "../helpers";
 
 const VideoContent = ({ video }) => {
   return (

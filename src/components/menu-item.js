@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql, Link } from "gatsby";
-import { urlify, getNodeId } from "../helpers/helpers";
+import { urlify, getNodeId } from "../helpers";
 import Nav from "react-bootstrap/Nav";
 
 const MenuItem = ({ name, url }) => {

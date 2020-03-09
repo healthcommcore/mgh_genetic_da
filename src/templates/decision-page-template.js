@@ -4,7 +4,7 @@ import Header from "../components/header";
 import PageTitle from "../components/page-title";
 import PageBody from "../components/page-body";
 
-const PageTemplate = ({ data }) => {
+const DecisionPageTemplate = ({ data }) => {
   const node = data.nodeDecisionAidPage;
   return (
     <div className="page">
@@ -55,4 +55,4 @@ export const query = graphql`
   }
 `
 
-export default PageTemplate;
+export default DecisionPageTemplate;

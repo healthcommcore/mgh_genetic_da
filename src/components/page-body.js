@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import VideoContent from "./video-content";
-import { setHTML, exists } from "../helpers/helpers";
+import { setHTML, exists } from "../helpers";
 
 const PageBody = ({ intro, body, outro, complexContent }) => {
   return (

@@ -22,12 +22,31 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
+      allNodeArticle {
+        edges {
+          node {
+            id
+            path {
+              alias
+            }
+          }
+        }
+      }
     }
   `).then( (result) => {
     result.data.allNodeDecisionAidPage.edges.forEach( ({ node }) => {
       createPage({
         path: node.path.alias,
-        component: path.resolve(`./src/templates/page-template.js`),
+        component: path.resolve(`./src/templates/decision-page-template.js`),
+        context: {
+          id: node.id,
+        },
+      });
+    })
+    result.data.allNodeArticle.edges.forEach( ({ node }) => {
+      createPage({
+        path: node.path.alias,
+        component: path.resolve(`./src/templates/article-page-template.js`),
         context: {
           id: node.id,
         },
