@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Header from "../components/header";
 import PageTitle from "../components/page-title";
 import PageBody from "../components/page-body";
+import ButtonNavigation from "../components/button-navigation";
 
 const DecisionPageTemplate = ({ data }) => {
   const node = data.nodeDecisionAidPage;
@@ -29,6 +30,9 @@ export const query = graphql`
       title
       body {
         processed
+      }
+      path {
+        alias
       }
       field_outro_text {
         processed
