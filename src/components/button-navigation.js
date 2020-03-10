@@ -1,11 +1,10 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
 
-const ButtonNavigation = ([ buttons ]) => {
+const ButtonNavigation = ({ type, currentLocation }) => {
   return (
-    <div className="d-flex justify-content-between">
-    </div>
+      <>
+        <a
   );
 }
 
