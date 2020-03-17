@@ -12,7 +12,7 @@ import { connect } from "react-redux";
 import { reduxForm } from "redux-form";
 import LoginForm from "../components/login-form";
 import { setUser } from "../actions";
-import { navigate, graphql } from "gatsby";
+import { navigate, graphql, useStaticQuery } from "gatsby";
 
 const mapStateToProps = (state) => {
   return { user: state.user };
@@ -28,6 +28,8 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
+
+
 
 let Index = ({ data, setUser }) => {
   const cancers = data.allTaxonomyTermCancerType.edges;
