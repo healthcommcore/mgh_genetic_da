@@ -1,29 +1,12 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
 import { useDrupalMenu } from "../helpers/use-drupal-menu";
+import NavManager from "../helpers/nav-manager";
 
 const PageTest = () => {
   const items = useDrupalMenu();
-  console.log(items);
-{/*
-  const items = useStaticQuery(
-    graphql`
-      query {
-        allMenuLinkContentMenuLinkContent {
-          edges {
-            node {
-              title
-              weight
-              link {
-                uri
-              }
-            }
-          }
-        }
-      }
-    `
-  );
-*/}
+  const nm = new NavManager(items);
+  console.log(nm.getCurrent());
+
   return (
     <h1>This is a page to test things</h1>
   );
