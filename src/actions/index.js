@@ -5,4 +5,19 @@ const setUser = (userInfo) => {
   }
 }
 
-export { setUser };
+const initiateNav = () => {
+  return {
+    type: `INITIATE`
+  }
+}
+
+const isCurrent = (item) => {
+  return {
+    type: `IS_CURRENT`,
+    item
+  }
+}
+
+const was
+
+export { setUser, initiateNav };

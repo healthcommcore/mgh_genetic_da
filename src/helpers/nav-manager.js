@@ -1,14 +1,38 @@
 class NavManager {
 
+  constructor() {
+    this.menuItems = [];
+    this.current = 0;
+  }
+
+/*
   constructor(drupalMenu) {
     const order = this.__getOrder(drupalMenu);
     const reordered = this.__reOrder(order, drupalMenu);
     this.menuItems = reordered;
+    this.menuItems.unshift(this.__setStart());
     this.current = 0;
+  }
+*/
+
+  initialize = (drupalMenu) => {
+    const order = this.__getOrder(drupalMenu);
+    const reordered = this.__reOrder(order, drupalMenu);
+    this.__setVisitedProp(reordered);
+    this.menuItems = reordered;
+    this.menuItems.unshift(this.__setStart());
   }
 
   getMenuItems = () => {
     return this.menuItems;
+  }
+
+  getNavigation = () => {
+    return {
+      current: this.getCurrent(),
+      previous: this.getPrevious(),
+      next: this.getNext()
+    };
   }
 
   setCurrent = (num) => {
@@ -19,6 +43,15 @@ class NavManager {
     return this.menuItems[this.current];
   }
 
+  getNext = () => {
+    const next = this.current + 1;
+    return this.menuItems[next];
+  }
+
+  getPrev = () => {
+    const prev = this.current - 1;
+    return this.menuItems[prev];
+  }
   advance = () => {
     this.current++
     return this;
@@ -56,21 +89,27 @@ class NavManager {
     return reordered;
   }
 
-  __setStartFinish = () => {
-    return [
-      {
-        title: "Start",
-        weight: -999,
-        link: { uri: ""}
-      },
+  __setVisitedProp = (items) => {
+    items.forEach( (item) => {
+      item.visited = false;
+    });
+  }
+
+  __setStart = () => {
+    return {
+      title: "Start",
+      weight: -999,
+      link: { uri: ""},
+      visited: true
+    }
+      /*
       {
         title: "Finish",
         weight: 999,
         link: { uri: ""}
       }
-    ];
+      */
   }
-  
 }
 
 export default NavManager;
