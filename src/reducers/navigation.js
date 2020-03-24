@@ -22,8 +22,8 @@ const navigation = (state = initialState, action) => {
           navPaths: navMan.getNavigation()
         } 
       );
-    case `GET_CURRENT`:
-      return state.current;
+    case `ADVANCE`:
+      navMan.advance();
     default:
       return state;
   }

@@ -5,22 +5,12 @@ class NavManager {
     this.current = 0;
   }
 
-/*
-  constructor(drupalMenu) {
-    const order = this.__getOrder(drupalMenu);
-    const reordered = this.__reOrder(order, drupalMenu);
-    this.menuItems = reordered;
-    this.menuItems.unshift(this.__setStart());
-    this.current = 0;
-  }
-*/
-
   initialize = (drupalMenu) => {
     const order = this.__getOrder(drupalMenu);
     const reordered = this.__reOrder(order, drupalMenu);
     this.__setVisitedProp(reordered);
     this.menuItems = reordered;
-    this.menuItems.unshift(this.__setStart());
+    //this.menuItems.unshift(this.__setStart());
   }
 
   getMenuItems = () => {
@@ -52,8 +42,14 @@ class NavManager {
     const prev = this.current - 1;
     return this.menuItems[prev] && false;
   }
+
   advance = () => {
     this.current++
+    return this;
+  }
+
+  advance = () => {
+    this.current--
     return this;
   }
 
@@ -97,7 +93,7 @@ class NavManager {
 
   __setStart = () => {
     return {
-      title: "Start",
+      title: "Entrance",
       weight: -999,
       link: { uri: ""},
       visited: true
