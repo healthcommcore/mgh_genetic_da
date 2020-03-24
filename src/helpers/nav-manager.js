@@ -30,7 +30,7 @@ class NavManager {
   getNavigation = () => {
     return {
       current: this.getCurrent(),
-      previous: this.getPrevious(),
+      previous: this.getPrev(),
       next: this.getNext()
     };
   }
@@ -50,7 +50,7 @@ class NavManager {
 
   getPrev = () => {
     const prev = this.current - 1;
-    return this.menuItems[prev];
+    return this.menuItems[prev] && false;
   }
   advance = () => {
     this.current++

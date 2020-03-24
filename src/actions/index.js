@@ -5,9 +5,10 @@ const setUser = (userInfo) => {
   }
 }
 
-const initiateNav = () => {
+const initializeMenu = (drupalMenu) => {
   return {
-    type: `INITIATE`
+    type: `INITIALIZE`,
+    drupalMenu
   }
 }
 
@@ -18,6 +19,5 @@ const isCurrent = (item) => {
   }
 }
 
-const was
 
-export { setUser, initiateNav };
+export { setUser, initializeMenu };
