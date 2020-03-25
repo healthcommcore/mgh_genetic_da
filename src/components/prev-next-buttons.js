@@ -21,9 +21,9 @@ const PrevNextButtons = ({ prevNext, advance, retreat }) => {
               return (
                 <Col md="6" sm="12">
                   <Button 
-                    //as={ Link } 
+                    as={ Link } 
                     className="btn-prev-next"
-                    //to={ prevNext[key].path }
+                    to={ prevNext[key].path }
                     onClick={ link[key] }
                   >
                     { ucFirst(key) }

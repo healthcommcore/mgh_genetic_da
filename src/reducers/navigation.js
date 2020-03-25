@@ -36,7 +36,7 @@ const navigation = (state = initialState, action) => {
       console.log(newNavPaths);
       return Object.assign(
         {}, state, 
-        { newNavPaths }
+        { navPaths: newNavPaths }
       );
     default:
       return state;

@@ -59,7 +59,6 @@ class NavManager {
   }
 
   retreat = () => {
-    console.log(this.navPaths);
     this.current--
     this.__setNavPaths();
     return this;
