@@ -15,11 +15,12 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, reducer);
 
 let store = createStore(
-  persistedReducer,
+  //persistedReducer,
+  reducer,
   typeof window !== "undefined" && window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-let persistor = persistStore(store);
+//let persistor = persistStore(store);
 
 {/*
     <Provider store={ store }>

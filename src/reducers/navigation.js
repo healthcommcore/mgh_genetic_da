@@ -28,15 +28,15 @@ const navigation = (state = initialState, action) => {
       newNavPaths = navMan.advance().getNavPaths();
       console.log(newNavPaths);
       return Object.assign(
-        {}, state.navigation.navPaths, 
-        { ...newNavPaths }
+        {}, state, 
+        { navPaths: newNavPaths }
       );
     case `RETREAT`:
       newNavPaths = navMan.retreat().getNavPaths();
       console.log(newNavPaths);
       return Object.assign(
-        {}, state.navigation.navPaths, 
-        { ...newNavPaths }
+        {}, state, 
+        { newNavPaths }
       );
     default:
       return state;
