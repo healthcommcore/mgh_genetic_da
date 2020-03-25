@@ -21,12 +21,18 @@ let store = createStore(
 
 let persistor = persistStore(store);
 
-export default ({ element }) => {
-  return (
+{/*
     <Provider store={ store }>
       <PersistGate loading={ null } persistor={ persistor }>
         { element }
       </PersistGate>
+    </Provider>
+*/}
+
+export default ({ element }) => {
+  return (
+    <Provider store={ store }>
+        { element }
     </Provider>
   );
 }

@@ -16,4 +16,8 @@ const exists = (content) => {
   return content != null && typeof content !== "undefined";
 }
 
-export { setHTML, getNodeId, urlify, exists };
+const ucFirst = (str) => {
+  return str[0].toUpperCase() + str.slice(1);
+}
+
+export { setHTML, getNodeId, urlify, exists, ucFirst };

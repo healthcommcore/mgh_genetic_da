@@ -12,6 +12,18 @@ const initializeMenu = (drupalMenu) => {
   }
 }
 
+const advance = () => {
+  return {
+    type: `ADVANCE`,
+  }
+}
+
+const retreat = () => {
+  return {
+    type: `RETREAT`,
+  }
+}
+
 const isCurrent = (item) => {
   return {
     type: `IS_CURRENT`,
@@ -20,4 +32,4 @@ const isCurrent = (item) => {
 }
 
 
-export { setUser, initializeMenu };
+export { setUser, initializeMenu, advance, retreat };

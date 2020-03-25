@@ -4,6 +4,7 @@ import Header from "../components/header";
 import PageTitle from "../components/page-title";
 import PageBody from "../components/page-body";
 import NavContainer from "../containers/nav-container";
+import ButtonsContainer from "../containers/buttons-container";
 
 const DecisionPageTemplate = ({ data }) => {
   const node = data.nodeDecisionAidPage;
@@ -20,6 +21,7 @@ const DecisionPageTemplate = ({ data }) => {
         outro={ node.field_outro_text }
         complexContent={ node.relationships }
       />
+      <ButtonsContainer />
     </div>
   );
 }
