@@ -89,7 +89,7 @@ class NavManager {
     items.forEach( (item) => {
       order.push(item.node.weight);
     });
-    return order.sort().reverse();
+    return order.sort();
   }
 
   __reOrder = (order, items) => {
