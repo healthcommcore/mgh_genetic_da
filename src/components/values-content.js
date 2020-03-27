@@ -15,15 +15,6 @@ const ValuesContent = ({ values }) => {
         />
       );
     })
-      /*
-        <>
-          <p>{ item.field_value_heading }</p>
-          <ul>
-            <li>{ item.field_l }</li>
-            <li>{ item.field_r }</li>
-          </ul>
-        </>
-      */
   );
 }
 
