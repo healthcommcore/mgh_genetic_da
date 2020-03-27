@@ -31,6 +31,9 @@ export const query = graphql`
   query($id: String!) {
     nodeDecisionAidPage(id: {eq: $id} ) {
       title
+      field_intro_text {
+        processed
+      }
       body {
         processed
       }

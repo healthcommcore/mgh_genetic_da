@@ -17,7 +17,6 @@ const navigation = (state = initialState, action) => {
   switch(action.type) {
     case `INITIALIZE`:
       navMan.initialize(action.drupalMenu);
-      console.log(navMan.getNavPaths());
       return Object.assign(
         {}, state, { 
           menuItems: navMan.getMenuItems(),
@@ -26,14 +25,12 @@ const navigation = (state = initialState, action) => {
       );
     case `ADVANCE`:
       newNavPaths = navMan.advance().getNavPaths();
-      console.log(newNavPaths);
       return Object.assign(
         {}, state, 
         { navPaths: newNavPaths }
       );
     case `RETREAT`:
       newNavPaths = navMan.retreat().getNavPaths();
-      console.log(newNavPaths);
       return Object.assign(
         {}, state, 
         { navPaths: newNavPaths }

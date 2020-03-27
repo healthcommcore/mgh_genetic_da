@@ -15,21 +15,24 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, reducer);
 
 let store = createStore(
-  //persistedReducer,
-  reducer,
+  persistedReducer,
+  //reducer,
   typeof window !== "undefined" && window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-//let persistor = persistStore(store);
+let persistor = persistStore(store);
 
-{/*
+export default ({ element }) => {
+  return (
     <Provider store={ store }>
       <PersistGate loading={ null } persistor={ persistor }>
         { element }
       </PersistGate>
     </Provider>
-*/}
+  );
+}
 
+{/*
 export default ({ element }) => {
   return (
     <Provider store={ store }>
@@ -37,4 +40,5 @@ export default ({ element }) => {
     </Provider>
   );
 }
+*/}
 
