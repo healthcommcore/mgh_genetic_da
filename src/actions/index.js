@@ -5,6 +5,13 @@ const setUser = (userInfo) => {
   }
 }
 
+const setValue = (e) => {
+  return {
+    type: `SET_VALUE`,
+    valueInfo: e
+  }
+}
+
 const initializeMenu = (drupalMenu) => {
   return {
     type: `INITIALIZE`,
