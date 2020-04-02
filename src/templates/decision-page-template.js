@@ -17,7 +17,6 @@ const DecisionPageTemplate = ({ data }) => {
       </PageTitle>
       <PageBody
         intro={ node.field_intro_text }
-        body={ node.body }
         outro={ node.field_outro_text }
         complexContent={ node.relationships }
       />
@@ -32,9 +31,6 @@ export const query = graphql`
     nodeDecisionAidPage(id: {eq: $id} ) {
       title
       field_intro_text {
-        processed
-      }
-      body {
         processed
       }
       path {
