@@ -8,11 +8,11 @@ import ValuesScaleLabels from "./values-scale-labels";
 const SCALE_NUM = [1, 2, 3, 4, 5, 6, 7];
 
 const mapDispatchToProps = (dispatch) => {
-  return ({
+  return {
     setValue: (e) => {
-      dispatch(setValue(e));
+      dispatch( setValue(e) );
     }
-  });
+  }
 }
 
 
@@ -28,7 +28,7 @@ const ValuesScale = ({ num, heading, leftLabel, rightLabel, setValue }) => {
               name={ "scale-" + num } 
               value={sn} 
               className="rounded-circle"
-              onClick={ setValue }>
+              onChange={ setValue }>
             </ToggleButton>
           );
         })}

@@ -39,4 +39,4 @@ const isCurrent = (item) => {
 }
 
 
-export { setUser, initializeMenu, advance, retreat };
+export { setUser, setValue, initializeMenu, advance, retreat };
