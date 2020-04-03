@@ -46,6 +46,27 @@ export const query = graphql`
             processed
           }
         }
+        field_content_module {
+          field_module_title
+          relationships {
+            field_content_segment {
+              field_content {
+                processed
+              }
+              relationships {
+                field_button_with_text {
+                  field_button_text
+                  field_text_leading_to_button {
+                    processed
+                  }
+                }
+                field_multiple_choice {
+                  field_option_name
+                }
+              }
+            }
+          }
+        }
         field_values {
           field_value_heading
           field_r

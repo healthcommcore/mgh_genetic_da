@@ -9,7 +9,10 @@ const getNodeId = (str) => {
 }
 
 const urlify = (name) => {
-  return name.toLowerCase().replace(/\ /g, "-");
+  const toArr = name.split(" ").map( (segment) => {
+    return segment.toLowerCase().replace(/\W/g, "");
+  });
+  return toArr.join("-");
 }
 
 const exists = (content) => {
