@@ -1,15 +1,15 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import { setHTML } from "../helpers";
+import { setHTML, exists } from "../helpers";
 
-const ContentModuleSegment = ({ segments }) => {
+const ContentModuleSegment = ({ segment }) => {
+  //console.log(segment.relationships);
+  /* This is a good start. Next, need to make components to handle buttons and
+   * multiple choices within relationships
+   */
   return (
     <>
-      { segments.map( (segment, i) => {
-        return segment.field_content && (
-          <Card.Text key={ i }>{ setHTML(segment.field_content.processed) }</Card.Text>
-        )
-      })}
+      { segment.field_content && <Card.Text>{ setHTML(segment.field_content.processed) }</Card.Text> }
     </>
   );
 }
