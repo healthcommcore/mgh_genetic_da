@@ -59,9 +59,23 @@ export const query = graphql`
                   field_text_leading_to_button {
                     processed
                   }
+                  relationships {
+                    field_button_destination {
+                      path {
+                        alias
+                      }
+                    }
+                  }
                 }
                 field_multiple_choice {
                   field_option_name
+                  field_intro_to_options
+                  field_can_choose_multiple
+                  relationships {
+                    field_relevance {
+                      name
+                    }
+                  }
                 }
               }
             }
