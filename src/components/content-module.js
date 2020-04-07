@@ -4,7 +4,7 @@ import ContentModuleSegment from "./content-module-segment";
 
 const ContentModule = ({ content }) => {
   const modules = content.field_content_module;
-  return modules[0].field_module_title && (
+  return (modules.length > 0 && modules[0].field_module_title) && (
     modules.map( (module, i) => {
       const segments = module.relationships.field_content_segment;
       return (

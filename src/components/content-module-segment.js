@@ -1,7 +1,8 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import MultChoiceSegment from "./mult-choice-segment";
-import { setHTML, exists } from "../helpers";
+import ButtonSegment from "./button-segment";
+import { setHTML } from "../helpers";
 
 const ContentModuleSegment = ({ segment }) => {
   const MULT_CHOICE = "field_multiple_choice";
@@ -21,7 +22,13 @@ const ContentModuleSegment = ({ segment }) => {
               multChoice.field_option_name.length > 0;
             return isMultChoice && <MultChoiceSegment content={ multChoice } />;
           case BUTTON:
-            return <></>;
+            const buttons = components[BUTTON];
+            const isButton = (buttons[0] && buttons[0].hasOwnProperty("field_button_text")) && 
+              buttons[0].field_button_text;
+            return isButton && (
+              buttons.map( (button, i) => {
+                return <ButtonSegment key={ i } content={ button } />;
+              }));
           default:
             return <></>;
         }

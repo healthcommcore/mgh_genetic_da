@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from "react-bootstrap/Button";
+import NavButton from "./nav-button.js";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -20,14 +20,13 @@ const PrevNextButtons = ({ prevNext, advance, retreat }) => {
             if (prevNext[key] && key !== "current") {
               return (
                 <Col md="6" sm="12">
-                  <Button 
-                    as={ Link } 
-                    className="btn-prev-next"
-                    to={ prevNext[key].path }
+                  <NavButton 
+                    className="btn-da btn-prev-next"
+                    path={ prevNext[key].path }
                     onClick={ link[key] }
                   >
                     { ucFirst(key) }
-                  </Button>
+                  </NavButton>
                 </Col>
               );
             }

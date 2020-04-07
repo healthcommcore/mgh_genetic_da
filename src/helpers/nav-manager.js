@@ -34,7 +34,11 @@ class NavManager {
     return this.navPaths;
   }
 
-  setCurrent = (num) => {
+  setNewCurrent = (path) => {
+    console.log(path);
+  }
+
+  __setCurrent = (num) => {
     this.current = num;
   }
 

@@ -35,6 +35,8 @@ const navigation = (state = initialState, action) => {
         {}, state, 
         { navPaths: newNavPaths }
       );
+    case `SET_NEW_CURRENT`:
+      navMan.setNewCurrent(action.path);
     default:
       return state;
   }
