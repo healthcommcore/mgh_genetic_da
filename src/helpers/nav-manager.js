@@ -30,12 +30,18 @@ class NavManager {
     return this.menuItems;
   }
 
+  setMenuItems = (menuItems) => {
+    this.menuItems = menuItems;
+  }
+
   getNavPaths = () => {
     return this.navPaths;
   }
 
   setNewCurrent = (path) => {
-    console.log(path);
+    const itemIndex = this.menuItems.findIndex( (item) => item.path === path );
+    this.__setCurrent(itemIndex);  
+    this.__resetNavPaths();
   }
 
   __setCurrent = (num) => {
@@ -58,13 +64,13 @@ class NavManager {
 
   advance = () => {
     this.current++
-    this.__setNavPaths();
+    this.__resetNavPaths();
     return this;
   }
 
   retreat = () => {
     this.current--
-    this.__setNavPaths();
+    this.__resetNavPaths();
     return this;
   }
 
@@ -79,7 +85,7 @@ class NavManager {
     return this.menuItems[++this.current];
   }
 
-  __setNavPaths = () => {
+  __resetNavPaths = () => {
     this.navPaths = {
       current: this.menuItems[this.current],
       previous: this.menuItems[this.current - 1] || false,

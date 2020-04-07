@@ -36,7 +36,16 @@ const navigation = (state = initialState, action) => {
         { navPaths: newNavPaths }
       );
     case `SET_NEW_CURRENT`:
+      if (!action.path) { return state; }
+      if (navMan.getMenuItems().length === 0) {
+        navMan.setMenuItems(state.menuItems);
+      }
       navMan.setNewCurrent(action.path);
+      newNavPaths = navMan.getNavPaths();
+      return Object.assign(
+        {}, state, 
+        { navPaths: newNavPaths }
+      );
     default:
       return state;
   }
