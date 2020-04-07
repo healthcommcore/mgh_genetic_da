@@ -17,8 +17,8 @@ const DecisionPageTemplate = ({ data }) => {
       </PageTitle>
       <PageBody
         intro={ node.field_intro_text }
-        outro={ node.field_outro_text }
         complexContent={ node.relationships }
+        outro={ node.field_outro_text }
       />
       <ButtonsContainer />
     </div>
