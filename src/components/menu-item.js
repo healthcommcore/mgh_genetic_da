@@ -2,14 +2,29 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { urlify, getNodeId } from "../helpers";
+import { connect } from "react-redux";
+import { setNewCurrent } from "../actions";
 import Nav from "react-bootstrap/Nav";
 
-const MenuItem = ({ name, url }) => {
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setNewCurrent: (path) => {
+      return dispatch( setNewCurrent(path) );
+    }
+  }
+}
+
+const MenuItem = ({ name, url, setNewCurrent }) => {
   const path = urlify(name);
   const nodeId = getNodeId(url);
   return (
     <Nav.Item>
-      <Nav.Link as={ Link } to={ path } nodeid={ nodeId }>
+      <Nav.Link 
+        as={ Link } 
+        to={ path } 
+        nodeid={ nodeId }
+        onClick={ () => setNewCurrent("/" + path) }
+    >
         { name }
       </Nav.Link>
     </Nav.Item>
@@ -26,4 +41,4 @@ MenuItem.defaultProps = {
   url: "#"
 }
 
-export default MenuItem;
+export default connect(null, mapDispatchToProps)(MenuItem);
