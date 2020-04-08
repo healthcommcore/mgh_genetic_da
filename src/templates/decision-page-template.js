@@ -16,6 +16,7 @@ const DecisionPageTemplate = ({ data }) => {
         { node.title }
       </PageTitle>
       <PageBody
+        video={ node.relationships.field_video }
         intro={ node.field_intro_text }
         complexContent={ node.relationships }
         outro={ node.field_outro_text }

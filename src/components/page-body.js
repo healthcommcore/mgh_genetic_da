@@ -1,15 +1,15 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
-import VideoContent from "./video-content";
 import ValuesContent from "./values-content";
+import VideoContent from "../components/video-content";
 import ContentModule from "./content-module";
 import { setHTML, exists } from "../helpers";
 
-const PageBody = ({ intro, outro, complexContent }) => {
+const PageBody = ({ video, intro, outro, complexContent }) => {
   return (
     <Container>
+      <VideoContent video={ video } />
       { exists(intro) ? setHTML(intro.processed) : "" }
-      <VideoContent video={ complexContent } />
       <ContentModule content={ complexContent } />
       <ValuesContent values={ complexContent } />
       { exists(outro) ? setHTML(outro.processed)  : "" }
