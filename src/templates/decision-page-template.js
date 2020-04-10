@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Header from "../components/header";
+import Layout from "../components/layout";
 import PageTitle from "../components/page-title";
 import PageBody from "../components/page-body";
 import NavContainer from "../containers/nav-container";
@@ -9,7 +10,7 @@ import ButtonsContainer from "../containers/buttons-container";
 const DecisionPageTemplate = ({ data }) => {
   const node = data.nodeDecisionAidPage;
   return (
-    <div className="page">
+    <Layout className="decision-page">
       <Header />
       <NavContainer />
       <PageTitle>
@@ -22,7 +23,7 @@ const DecisionPageTemplate = ({ data }) => {
         outro={ node.field_outro_text }
       />
       <ButtonsContainer />
-    </div>
+    </Layout>
   );
 }
 

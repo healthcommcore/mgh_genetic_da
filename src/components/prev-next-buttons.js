@@ -21,7 +21,7 @@ const PrevNextButtons = ({ prevNext, advance, retreat }) => {
               return (
                 <Col md="6" sm="12">
                   <NavButton 
-                    className="btn-da btn-prev-next"
+                    className="btn-prev-next"
                     path={ prevNext[key].path }
                     onClick={ link[key] }
                   >

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { initializeMenu } from "../actions";
 import { navigate, graphql, Link } from "gatsby";
 import Button from "react-bootstrap/Button";
+import NavButton from "../components/nav-button";
 import { useDrupalMenu } from "../helpers/use-drupal-menu";
 import { setHTML } from "../helpers";
 
@@ -23,7 +24,7 @@ const Entrance = ({ data, initializeMenu }) => {
       <div className="content">
         { setHTML(fields.body.processed) }
       </div>
-      <Button as={ Link } to="/welcome">Start</Button>
+      <NavButton path="/welcome">Start</NavButton>
     </div>
   );
 }

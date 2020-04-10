@@ -27,7 +27,7 @@ const ButtonSegment = ({ content, setNewCurrent }) => {
         </Col>
         <Col sm={ 4 }>
           <NavButton
-            className="btn-da"
+            className="btn-segment"
             path={ path }
             onClick={ () => setNewCurrent(path) }
           >

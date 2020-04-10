@@ -1,0 +1,17 @@
+/* Layout */
+
+// Colors
+$bkgrd: #DEFBFF;
+
+$btn-bkgrd: #F5674D;
+
+
+body {
+  background: $bkgrd;
+}
+
+.btn-da {
+  background: $btn-bkgrd;
+  border: #fff 3px solid;
+  color: #fff;
+}
