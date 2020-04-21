@@ -15,6 +15,13 @@ const urlify = (name) => {
   return toArr.join("-");
 }
 
+const toCamelCase = (str) => {
+  const camelCased = str.split("-").map( (frag, i) => {
+    return i === 0 ? frag : ucFirst(frag);
+  });
+  return camelCased.join("");
+}
+
 const exists = (content) => {
   return content != null && typeof content !== "undefined";
 }
@@ -23,7 +30,16 @@ const ucFirst = (str) => {
   return str[0].toUpperCase() + str.slice(1);
 }
 
-const hasValidField2 = (obj, field1, field2) => {
+const getContent = (obj, field1, field2) => {
+  return _hasContent(obj, field1, field2) && obj[field1];
+}
+
+const _hasContent = (obj, field1, field2) => {
+  const hasField1 = obj.hasOwnProperty(field1) && obj[field1] != null;
+  return hasField1 && _hasValidField2(obj, field1, field2);
+}
+
+const _hasValidField2 = (obj, field1, field2) => {
   const component = obj[field1];
   if (Array.isArray(component)) {
     return component[0].hasOwnProperty(field2) && component[0][field2];
@@ -36,13 +52,5 @@ const hasValidField2 = (obj, field1, field2) => {
   }
 }
 
-const hasContent = (obj, field1, field2) => {
-  const hasField1 = obj.hasOwnProperty(field1) && obj[field1] != null;
-  return hasField1 && hasValidField2(obj, field1, field2);
-}
 
-const getContent = (obj, field1, field2) => {
-  return hasContent(obj, field1, field2) && obj[field1];
-}
-
-export { setHTML, getNodeId, urlify, exists, ucFirst, getContent };
+export { setHTML, getNodeId, urlify, exists, ucFirst, getContent, toCamelCase };

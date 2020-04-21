@@ -12,6 +12,14 @@ const setValue = (e) => {
   }
 }
 
+const setTestInput = (inputName, inputValue) => {
+  return {
+    type: `SET_TEST_INPUT`,
+    inputName,
+    inputValue
+  }
+}
+
 const initializeMenu = (drupalMenu) => {
   return {
     type: `INITIALIZE`,
@@ -47,4 +55,4 @@ const isCurrent = (item) => {
 }
 
 
-export { setUser, setValue, initializeMenu, advance, retreat, setNewCurrent };
+export { setUser, setValue, setTestInput, initializeMenu, advance, retreat, setNewCurrent };

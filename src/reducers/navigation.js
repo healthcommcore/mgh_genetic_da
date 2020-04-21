@@ -23,6 +23,7 @@ const navigation = (state = initialState, action) => {
           navPaths: navMan.getNavPaths()
         } 
       );
+      return state;
     case `ADVANCE`:
       newNavPaths = navMan.advance().getNavPaths();
       return Object.assign(

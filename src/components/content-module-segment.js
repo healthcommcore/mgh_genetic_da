@@ -18,9 +18,6 @@ const ContentModuleSegment = ({ segment }) => {
             return multChoice && <MultChoiceSegment content={ multChoice } />;
           case BUTTON:
             const buttons = getContent(components, BUTTON, "field_button_text");
-            //const buttons = components[BUTTON];
-            //const isButton = (buttons[0] && buttons[0].hasOwnProperty("field_button_text")) && 
-              //buttons[0].field_button_text;
             return buttons && (
               buttons.map( (button, i) => {
                 return <ButtonSegment key={ i } content={ button } />;

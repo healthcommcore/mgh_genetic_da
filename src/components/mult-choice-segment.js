@@ -1,8 +1,18 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
-import { urlify } from "../helpers";
+import { setTestInput } from "../actions";
+import { connect } from "react-redux";
+import { urlify, toCamelCase } from "../helpers";
 
-const MultChoiceSegment = ({ content }) => {
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setTestInput: (e) => {
+      dispatch( setTestInput(toCamelCase(e.target.name), e.target.value) );
+    }
+  }
+}
+
+const MultChoiceSegment = ({ content, setTestInput }) => {
   const type = content.field_can_choose_multiple ? "checkbox" : "radio";
   const name = content.relationships.field_relevance.name;
   return (
@@ -16,6 +26,7 @@ const MultChoiceSegment = ({ content }) => {
             key={ i } 
             name={ urlify(name) }
             value={ option }
+            onChange={ setTestInput }
           />
         );
       })}
@@ -23,4 +34,4 @@ const MultChoiceSegment = ({ content }) => {
   );
 }
 
-export default MultChoiceSegment;
+export default connect(null, mapDispatchToProps)(MultChoiceSegment);
