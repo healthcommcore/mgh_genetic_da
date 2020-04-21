@@ -23,4 +23,14 @@ const ucFirst = (str) => {
   return str[0].toUpperCase() + str.slice(1);
 }
 
-export { setHTML, getNodeId, urlify, exists, ucFirst };
+const hasContent = (obj, field1, field2) => {
+  const hasField1 = obj.hasOwnProperty(field1);
+  const hasField2 = Array.isArray(obj[field1]) && obj[field1][0].hasOwnProperty(field2) && obj[field1][0][field2];
+  return hasField1 && hasField2;
+}
+
+const getContent = (obj, field1, field2) => {
+  return hasContent(obj, field1, field2) && obj[field1];
+}
+
+export { setHTML, getNodeId, urlify, exists, ucFirst, getContent };

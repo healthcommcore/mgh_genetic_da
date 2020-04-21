@@ -1,9 +1,8 @@
 import React from "react";
 import ValuesScale from "./values-scale";
 
-const ValuesContent = ({ values }) => {
-  const list = values.field_values;
-  return list[0].field_value_heading && (
+const ValuesContent = ({ list }) => {
+  return list && (
     list.map( (item, i) => {
       return (
         <ValuesScale

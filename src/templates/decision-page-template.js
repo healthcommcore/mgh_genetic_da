@@ -17,6 +17,7 @@ const DecisionPageTemplate = ({ data }) => {
         { node.title }
       </PageTitle>
       <PageBody
+        page={ node.path.alias }
         video={ node.relationships.field_video }
         intro={ node.field_intro_text }
         complexContent={ node.relationships }
@@ -44,6 +45,7 @@ export const query = graphql`
       relationships {
         field_accordions {
           field_accordion_heading
+          field_accordion_subheading
           field_accordion_body {
             processed
           }
