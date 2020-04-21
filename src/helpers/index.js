@@ -23,10 +23,22 @@ const ucFirst = (str) => {
   return str[0].toUpperCase() + str.slice(1);
 }
 
+const hasValidField2 = (obj, field1, field2) => {
+  const component = obj[field1];
+  if (Array.isArray(component)) {
+    return component[0].hasOwnProperty(field2) && component[0][field2];
+  }
+  else if (component.hasOwnProperty(field2)) {
+    return Array.isArray(component[field2]) && component[field2][0];
+  }
+  else {
+    return false;
+  }
+}
+
 const hasContent = (obj, field1, field2) => {
-  const hasField1 = obj.hasOwnProperty(field1);
-  const hasField2 = Array.isArray(obj[field1]) && obj[field1][0].hasOwnProperty(field2) && obj[field1][0][field2];
-  return hasField1 && hasField2;
+  const hasField1 = obj.hasOwnProperty(field1) && obj[field1] != null;
+  return hasField1 && hasValidField2(obj, field1, field2);
 }
 
 const getContent = (obj, field1, field2) => {

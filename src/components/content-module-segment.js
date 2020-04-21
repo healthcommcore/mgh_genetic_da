@@ -2,14 +2,11 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import MultChoiceSegment from "./mult-choice-segment";
 import ButtonSegment from "./button-segment";
-import { setHTML } from "../helpers";
+import { setHTML, getContent } from "../helpers";
 
 const ContentModuleSegment = ({ segment }) => {
   const MULT_CHOICE = "field_multiple_choice";
   const BUTTON = "field_button_with_text";
-  /* This is a good start. Next, need to make components to handle buttons and
-   * multiple choices within relationships
-   */
   const components = segment.relationships;
   return (
     <>
@@ -17,15 +14,14 @@ const ContentModuleSegment = ({ segment }) => {
       { Object.keys(components).map( (type, i) => {
         switch(type) {
           case MULT_CHOICE:
-            const multChoice = components[MULT_CHOICE];
-            const isMultChoice = (multChoice && multChoice.hasOwnProperty("field_option_name")) && 
-              multChoice.field_option_name.length > 0;
-            return isMultChoice && <MultChoiceSegment content={ multChoice } />;
+            const multChoice = getContent(components, MULT_CHOICE, "field_option_name");
+            return multChoice && <MultChoiceSegment content={ multChoice } />;
           case BUTTON:
-            const buttons = components[BUTTON];
-            const isButton = (buttons[0] && buttons[0].hasOwnProperty("field_button_text")) && 
-              buttons[0].field_button_text;
-            return isButton && (
+            const buttons = getContent(components, BUTTON, "field_button_text");
+            //const buttons = components[BUTTON];
+            //const isButton = (buttons[0] && buttons[0].hasOwnProperty("field_button_text")) && 
+              //buttons[0].field_button_text;
+            return buttons && (
               buttons.map( (button, i) => {
                 return <ButtonSegment key={ i } content={ button } />;
               }));
