@@ -9,7 +9,6 @@ class NavManager {
   }
 
   initialize = (drupalMenu) => {
-    console.log(drupalMenu);
     const order = this.__getOrder(drupalMenu);
     const reordered = this.__reOrder(order, drupalMenu);
     //this.__setVisitedProp(reordered);

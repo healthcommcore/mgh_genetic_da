@@ -12,11 +12,12 @@ const setValue = (e) => {
   }
 }
 
-const setTestInput = (inputName, inputValue) => {
+const setTestInput = (inputName, inputValue, inputType) => {
   return {
     type: `SET_TEST_INPUT`,
     inputName,
-    inputValue
+    inputValue,
+    inputType
   }
 }
 

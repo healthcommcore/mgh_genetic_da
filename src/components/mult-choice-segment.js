@@ -7,7 +7,7 @@ import { urlify, toCamelCase } from "../helpers";
 const mapDispatchToProps = (dispatch) => {
   return {
     setTestInput: (e) => {
-      dispatch( setTestInput(toCamelCase(e.target.name), e.target.value) );
+      dispatch( setTestInput(toCamelCase(e.target.name), e.target.value, e.target.type) );
     }
   }
 }
