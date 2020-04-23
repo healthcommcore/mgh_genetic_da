@@ -18,7 +18,8 @@ const DecisionPageTemplate = ({ data }) => {
       </PageTitle>
       <PageBody
         page={ node.path.alias }
-        video={ node.relationships.field_video }
+        video={ node.relationships }
+        videoCaption={ node.field_video_caption }
         intro={ node.field_intro_text }
         complexContent={ node.relationships }
         outro={ node.field_outro_text }
@@ -33,6 +34,7 @@ export const query = graphql`
   query($id: String!) {
     nodeDecisionAidPage(id: {eq: $id} ) {
       title
+      field_video_caption
       field_intro_text {
         processed
       }
@@ -91,6 +93,11 @@ export const query = graphql`
           field_l
         }
         field_video {
+          uri {
+            url
+          }
+        }
+        field_video_still_image {
           uri {
             url
           }

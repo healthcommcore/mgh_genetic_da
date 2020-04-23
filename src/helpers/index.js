@@ -34,8 +34,11 @@ const getContent = (obj, field1, field2) => {
   return _hasContent(obj, field1, field2) && obj[field1];
 }
 
-const _hasContent = (obj, field1, field2) => {
+const _hasContent = (obj, field1, field2 = false) => {
   const hasField1 = obj.hasOwnProperty(field1) && obj[field1] != null;
+  if (!field2) {
+    return hasField1;
+  }
   return hasField1 && _hasValidField2(obj, field1, field2);
 }
 

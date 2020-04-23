@@ -6,13 +6,19 @@ import AccordionContent from "../components/accordion-content";
 import ContentModule from "./content-module";
 import { setHTML, exists, getContent } from "../helpers";
 
-const PageBody = ({ page, video, intro, outro, complexContent }) => {
+const PageBody = ({ page, video, videoCaption, intro, outro, complexContent }) => {
   const accordions = getContent(complexContent, "field_accordions", "field_accordion_heading");
   const values = getContent(complexContent, "field_values", "field_value_heading");
+  const vidUrl = getContent(video, "field_video");
+  const vidPlaceholder = getContent(video, "field_video_still_image");
   page = page.slice(1);
   return (
     <Container>
-      <VideoContent video={ video } />
+      <VideoContent 
+        video={ vidUrl } 
+        caption={ videoCaption } 
+        placeholder={ vidPlaceholder }
+      />
       { exists(intro) ? setHTML(intro.processed) : "" }
       { 
         page === "choose-a-test" ?
