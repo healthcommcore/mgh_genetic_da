@@ -4,10 +4,15 @@ const initialState = {
   site: "",
   values: {},
   test: {
-    want: null,
-    notReadyToDecide: null,
+    doYouWantGeneticTest: null,
+    notReadyToDecide: new Set(),
     testTypes: null,
-    notSureWhichTest: new Set()
+    notSureWhichTest: new Set(),
+    visibility: {
+      yes: false,
+      no: false,
+      notSure: false
+    }
   }
 };
 

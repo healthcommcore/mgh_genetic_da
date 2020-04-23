@@ -54,6 +54,7 @@ export const query = graphql`
         }
         field_content_module {
           field_module_title
+          field_should_be_hidden
           relationships {
             field_content_segment {
               field_content {
