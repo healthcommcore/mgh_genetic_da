@@ -14,11 +14,11 @@ const ContentModule = ({ content }) => {
       hideShowContent = modules.slice(1);
       modules = [JSON.parse(JSON.stringify(modules[0]))];
     }
-  return (
-    <>
-    {  modules.map( (module, i) => {
-        const segments = module.relationships.field_content_segment;
-        return (
+    return (
+      <>
+        { modules.map( (module, i) => {
+          const segments = module.relationships.field_content_segment;
+          return (
             <Card key={ i }>
               <Card.Body>
                 <Card.Title>{ module.field_module_title }</Card.Title>
@@ -32,14 +32,12 @@ const ContentModule = ({ content }) => {
                 })}
               </Card.Body>
             </Card>
-
-        
-        );
-      })}
-    { hideShowContent.length > 0 && <HideShowContentModule pieces={ hideShowContent } /> }
-    </>
-  );
-  }
+          );
+        })}
+        { hideShowContent.length > 0 && <HideShowContentModule pieces={ hideShowContent } /> }
+      </>
+    );// return
+  } //if
   return <></>;
 }
 
