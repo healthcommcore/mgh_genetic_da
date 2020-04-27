@@ -2,51 +2,45 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Fade from "react-bootstrap/Fade";
 import { getContent } from "../helpers";
-import { connect } from "react-redux";
-import ConditionalWrapper from "./conditional-wrapper";
+import HideShowContentModule from "./hide-show-content-module";
 import ContentModuleSegment from "./content-module-segment";
 
-const mapStateToProps = (state) => {
-  return {
-    visibility: state.user.test.visibility
-  }
-}
+const ContentModule = ({ content }) => {
+  let modules = content.field_content_module;
+  let hideShowContent = [];
+  if (modules.length > 0 && modules[0].field_module_title) {
+    if (modules[1] && modules[1].relationships.hasOwnProperty("field_it_s_your_choice_label") &&
+        modules[1].relationships["field_it_s_your_choice_label"]) {
+      hideShowContent = modules.slice(1);
+      modules = [JSON.parse(JSON.stringify(modules[0]))];
+    }
+  return (
+    <>
+    {  modules.map( (module, i) => {
+        const segments = module.relationships.field_content_segment;
+        return (
+            <Card key={ i }>
+              <Card.Body>
+                <Card.Title>{ module.field_module_title }</Card.Title>
+                { segments.map( (segment, j) => {
+                  return (
+                    <ContentModuleSegment 
+                      key={ j }
+                      segment={ segment }
+                    />
+                  );
+                })}
+              </Card.Body>
+            </Card>
 
-const ContentModule = ({ content, visibility }) => {
-  const modules = content.field_content_module;
-  return (modules.length > 0 && modules[0].field_module_title) && (
-    modules.map( (module, i) => {
-      const segments = module.relationships.field_content_segment;
-      const moduleLabel = getContent(module.relationships, "field_it_s_your_choice_label");
-      return (
-        <ConditionalWrapper
-          condition={ module.field_should_be_hidden && moduleLabel.name }
-          wrapper={ children => 
-            <Fade in={ visibility[moduleLabel.name] }>
-              <div className={ visibility[moduleLabel.name] ? "spacer" : "" }>
-              { children }
-              </div>
-            </Fade> }
-        >
-          <Card key={ i } bsPrefix={ moduleLabel.name ? "card position-absolute" : "card" }>
-            <Card.Body>
-            <div className="content-structure">
-              <Card.Title>{ module.field_module_title }</Card.Title>
-              { segments.map( (segment, j) => {
-                return (
-                  <ContentModuleSegment 
-                    key={ j }
-                    segment={ segment }
-                  />
-                );
-              })}
-            </div>
-            </Card.Body>
-          </Card>
-        </ConditionalWrapper>
-      );
-    })
+        
+        );
+      })}
+    { hideShowContent.length > 0 && <HideShowContentModule pieces={ hideShowContent } /> }
+    </>
   );
+  }
+  return <></>;
 }
 
-export default connect(mapStateToProps, null)(ContentModule);
+export default ContentModule;
