@@ -30,7 +30,7 @@ const ucFirst = (str) => {
   return str[0].toUpperCase() + str.slice(1);
 }
 
-const getContent = (obj, field1, field2) => {
+const getContent = (obj, field1, field2 = false) => {
   return _hasContent(obj, field1, field2) && obj[field1];
 }
 

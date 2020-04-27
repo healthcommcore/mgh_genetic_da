@@ -11,41 +11,55 @@ const initialState = {
     visibility: {
       yes: false,
       no: false,
-      notSure: false
+      im: false
     }
   }
 };
 
 const user = (state = initialState, action) => {
-  let fakeState = {};
+  let stateCopy = JSON.parse(JSON.stringify(state));
   switch(action.type) {
     case `SET_USER`:
       return Object.assign({}, state, { ...action.userInfo });
     case `SET_VALUE`:
-      fakeState.values = state.values;
-      fakeState.values[action.valueInfo.target.name] = action.valueInfo.target.value;
-      return Object.assign({}, state, { ...fakeState });
+      stateCopy.values[action.valueInfo.target.name] = action.valueInfo.target.value;
+      return Object.assign({}, state, { ...stateCopy });
     case `SET_TEST_INPUT`:
-      fakeState.test = state.test;
       if (action.inputType === "checkbox") {
-        handleCheckbox(fakeState, action.inputName, action.inputValue);
+        handleCheckbox(stateCopy, action.inputName, action.inputValue);
       }
       else {
-        fakeState.test[action.inputName] = action.inputValue;
+        if (action.inputName === "doYouWantGeneticTest") {
+          handleVisibility(stateCopy, action.inputValue);
+        }
+        stateCopy.test[action.inputName] = action.inputValue;
       }
-      return Object.assign({}, state, { ...fakeState });
+      return Object.assign({}, state, { ...stateCopy });
     default:
       return state;
   }
 }
 
-const handleCheckbox = (fakeState, name, value) => {
-  if (fakeState.test[name] instanceof Set) {
-    return fakeState.test[name].has(value) ? fakeState.test[name].delete(value) : fakeState.test[name].add(value);
+const handleCheckbox = (stateCopy, name, value) => {
+  if (stateCopy.test[name] instanceof Set) {
+    return stateCopy.test[name].has(value) ? stateCopy.test[name].delete(value) : stateCopy.test[name].add(value);
   }
   let set = new Set();
   set.add(value);
-  return fakeState.test[name] = set;
+  return stateCopy.test[name] = set;
+}
+
+const handleVisibility = (stateCopy, selected) => {
+  const currVisibilities = stateCopy.test.visibility;
+  const response = selected.split(" ")[0].replace(/\W/, "").toLowerCase();
+  Object.keys(currVisibilities).forEach( (key) => {
+    if (key === response) {
+      stateCopy.test.visibility[key] = true;
+    }
+    else {
+      stateCopy.test.visibility[key] = false;
+    }
+  });
 }
 
 export default user;
