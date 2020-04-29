@@ -1,4 +1,7 @@
 import React, { useState} from "react";
+import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
+import Fade from "react-bootstrap/Fade";
 import AdminModal from "../components/admin-modal";
 import { connect } from "react-redux";
 import { adminLogin } from "../actions";
@@ -23,13 +26,21 @@ const mapDispatchToProps = (dispatch) => {
 
 const Admin = ({ isLoggedIn, showError, user, handleSubmit }) => {
   return (
-    <>
+    <Container>
       <AdminModal 
         showModal={ !isLoggedIn } 
         showAlert={ showError }
         modalSubmit={ (e, value) => handleSubmit(e, value) }
       />
-    </>
+      <Fade in={ isLoggedIn }>
+        <Card>
+          <Card.Body>
+            <Card.Title>Admin area</Card.Title>
+            <Card.Text>This is where admins can check participant entries</Card.Text>
+          </Card.Body>
+        </Card>
+      </Fade>
+    </Container>
   );
 }
 
