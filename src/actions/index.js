@@ -55,5 +55,12 @@ const isCurrent = (item) => {
   }
 }
 
+const adminLogin = (submitted) => {
+  return {
+    type: `ADMIN_LOGIN`,
+    submitted
+  }
+}
 
-export { setUser, setValue, setTestInput, initializeMenu, advance, retreat, setNewCurrent };
+
+export { setUser, setValue, setTestInput, initializeMenu, advance, retreat, setNewCurrent, adminLogin };
