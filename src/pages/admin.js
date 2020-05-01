@@ -26,13 +26,37 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-/*
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-*/
+const getTestDetails = (test) => {
+  const type = test.doYouWantGeneticTest.split(" ")[0].toLowerCase().replace(/\W/g, "");
+  let field, value, path;
+  switch (type) {
+    case "yes":
+      if (!test.testTypes && test.notSureWhichTest.length > 0) {
+        field = "Reasons not ready to choose test";
+        value = test.notSureWhichTest.join(", ");
+      }
+      else {
+        field = "Test type";
+        value = test.testTypes || "no test selected";
+      }
+      path = "/choose-a-test";
+    break;
+    case "im":
+      field = "Next steps";
+      value = test.notReadyToDecide.length > 0 && test.notReadyToDecide.join(", ");
+      path = "/its-your-decision";
+    break;
+    default:
+      return;
+  }
+  return (
+    <tr>
+      <td>{ field }</td>
+      <td>{ value }</td>
+      <td><NavButton path={ path }>Change</NavButton></td>
+    </tr>
+  )
+}
 
 const Admin = ({ isLoggedIn, showError, user, handleSubmit }) => {
   return (
@@ -64,6 +88,7 @@ const Admin = ({ isLoggedIn, showError, user, handleSubmit }) => {
                   <td>{ user.test.doYouWantGeneticTest }</td>
                   <td><NavButton path="/its-your-decision">Change</NavButton></td>
                 </tr>
+                { getTestDetails(user.test) }
               </tbody>
             </Table>
           </Card.Body>

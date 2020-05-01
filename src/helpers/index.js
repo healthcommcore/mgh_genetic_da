@@ -56,4 +56,12 @@ const _hasValidField2 = (obj, field1, field2) => {
 }
 
 
-export { setHTML, getNodeId, urlify, exists, ucFirst, getContent, toCamelCase };
+export { 
+  setHTML, 
+  getNodeId, 
+  urlify, 
+  exists, 
+  ucFirst, 
+  getContent, 
+  toCamelCase 
+};

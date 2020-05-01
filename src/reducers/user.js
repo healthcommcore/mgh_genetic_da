@@ -27,7 +27,6 @@ const user = (state = initialState, action) => {
     case `SET_TEST_INPUT`:
       if (action.inputType === "checkbox") {
         handleCheckbox(stateCopy, action.inputName, action.inputValue);
-        console.log(stateCopy);
       }
       else {
         if (action.inputName === "doYouWantGeneticTest") {

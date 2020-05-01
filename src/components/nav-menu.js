@@ -3,25 +3,30 @@ import PropTypes from "prop-types";
 import { urlify } from "../helpers";
 import MenuItem from "./menu-item";
 import Nav from "react-bootstrap/Nav";
+import NavButton from "./nav-button";
 
-const NavMenu = ({ menuItems }) => {
+const NavMenu = ({ menuItems, isAdminLoggedIn }) => {
   return (
-    <Nav>
-      { menuItems.map( (item, i) => {
-        return (
-          <MenuItem
-            name={ item.title }
-            url={ urlify(item.title) }
-            key={ i }
-          />
-        );
-      })}
-    </Nav>
+    <>
+      <Nav>
+        { menuItems.map( (item, i) => {
+          return (
+            <MenuItem
+              name={ item.title }
+              url={ urlify(item.title) }
+              key={ i }
+            />
+          );
+        })}
+      </Nav>
+      { isAdminLoggedIn && <div className="text-center"><NavButton className="btn-admin mx-auto" path="/admin">Back to admin area</NavButton></div> } 
+    </>
   );
 }
 
 NavMenu.propTypes = {
-  menuItems: PropTypes.array.isRequired
+  menuItems: PropTypes.array.isRequired,
+  isAdminLoggedIn: PropTypes.bool.isRequired,
 };
 
 export default NavMenu;
