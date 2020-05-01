@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import Button from "react-bootstrap/Button";
 
@@ -13,6 +14,12 @@ const NavButton = ({ path, className, onClick, children }) => {
     { children }
     </Button>
   );
+}
+
+NavButton.propTypes = {
+  path: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
 }
 
 export default NavButton;

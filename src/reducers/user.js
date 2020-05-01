@@ -5,9 +5,9 @@ const initialState = {
   values: {},
   test: {
     doYouWantGeneticTest: null,
-    notReadyToDecide: new Set(),
+    notReadyToDecide: [],
     testTypes: null,
-    notSureWhichTest: new Set(),
+    notSureWhichTest: [],
     visibility: {
       yes: false,
       no: false,
@@ -27,6 +27,7 @@ const user = (state = initialState, action) => {
     case `SET_TEST_INPUT`:
       if (action.inputType === "checkbox") {
         handleCheckbox(stateCopy, action.inputName, action.inputValue);
+        console.log(stateCopy);
       }
       else {
         if (action.inputName === "doYouWantGeneticTest") {
@@ -41,12 +42,11 @@ const user = (state = initialState, action) => {
 }
 
 const handleCheckbox = (stateCopy, name, value) => {
-  if (stateCopy.test[name] instanceof Set) {
-    return stateCopy.test[name].has(value) ? stateCopy.test[name].delete(value) : stateCopy.test[name].add(value);
-  }
-  let set = new Set();
-  set.add(value);
-  return stateCopy.test[name] = set;
+  let set = new Set(stateCopy.test[name]);
+  set.has(value) ? set.delete(value) : set.add(value);
+  return stateCopy.test[name] = Array.from(set);
+  /*
+  */
 }
 
 const handleVisibility = (stateCopy, selected) => {
