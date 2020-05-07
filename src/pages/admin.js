@@ -6,6 +6,7 @@ import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import NavButton from "../components/nav-button";
 import AdminModal from "../components/admin-modal";
+import EmailSubmitter from "../components/email-submitter";
 import { connect } from "react-redux";
 import { adminLogin } from "../actions";
 
@@ -91,6 +92,7 @@ const Admin = ({ isLoggedIn, showError, user, handleSubmit }) => {
                 { getTestDetails(user.test) }
               </tbody>
             </Table>
+            <EmailSubmitter />
           </Card.Body>
         </Card>
       </Fade>
