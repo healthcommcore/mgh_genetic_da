@@ -19,3 +19,11 @@ body {
 .test-choices {
   min-height: 300px;
 }
+
+.top-layer {
+  z-index: 999;
+}
+
+.bottom-layer {
+  z-index: 10;
+}

@@ -20,7 +20,7 @@ const HideShowContentModule = ({ pieces, visibility }) => {
           const moduleLabel = getContent(piece.relationships, "field_it_s_your_choice_label");
           return (
             <Fade key={i} in={ visibility[moduleLabel.name]}>
-              <div className="position-absolute">
+              <div className={ "position-absolute " + (visibility[moduleLabel.name] ? "top-layer" : "bottom-layer") }>
                 <Card.Title>{ piece.field_module_title }</Card.Title>
                 { segments.map( (segment, j) => {
                   return (
