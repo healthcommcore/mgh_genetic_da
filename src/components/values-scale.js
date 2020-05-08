@@ -7,6 +7,12 @@ import ValuesScaleLabels from "./values-scale-labels";
 
 const SCALE_NUM = [1, 2, 3, 4, 5, 6, 7];
 
+const mapStateToProps = (state) => {
+  return {
+    values: state.user.values
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     setValue: (e) => {
@@ -16,17 +22,18 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-const ValuesScale = ({ num, heading, leftLabel, rightLabel, setValue }) => {
+const ValuesScale = ({ num, heading, leftLabel, rightLabel, setValue, values }) => {
+  const name = "scale-" + num;
   return (
     <div className="values-scale">
       <h3>{ num }. { heading }</h3>
-      <ToggleButtonGroup name={ "scale-" + num }>
+      <ToggleButtonGroup type="radio" value={ Number(values[name]) } name={ name }>
         { SCALE_NUM.map( (sn, i) => {
           return (
             <ToggleButton 
               key={i} 
-              name={ "scale-" + num } 
-              value={sn} 
+              name={ name } 
+              value={ sn } 
               className="rounded-circle"
               onChange={ setValue }>
             </ToggleButton>
@@ -39,4 +46,4 @@ const ValuesScale = ({ num, heading, leftLabel, rightLabel, setValue }) => {
 }
 
 
-export default connect(null, mapDispatchToProps)(ValuesScale);
+export default connect(mapStateToProps, mapDispatchToProps)(ValuesScale);
