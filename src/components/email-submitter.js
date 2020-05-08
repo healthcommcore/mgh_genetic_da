@@ -1,21 +1,14 @@
 import React from "react";
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
-import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user
-  }
-}
-
-const sendEmail = (user) => {
-  const test = user.test;
-  const data = {
-    id: user.userid,
-    decision: test.doYouWantGeneticTest,
-    test: test.testTypes || "no test selected",
-    notReady: test.notReadyToDecide.length > 0 && test.notReadyToDecide.join(", ")
+const sendEmail = (id, data) => {
+  const user = {
+    id,
+    decision: data.doYouWantGeneticTest,
+    test: data.testTypes || "no test selected",
+    nextSteps: data.notReadyToDecide.length > 0 && data.notReadyToDecide.join(", ")
   };
 
   fetch("http://api.geneticda.hccstaging.com/sendmail.php",
@@ -25,7 +18,7 @@ const sendEmail = (user) => {
         "Content-Type" : "application/json",
         "Accept" : "application/json" 
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(user)
     })
     .then( (response) => {
       console.log(response);
@@ -35,10 +28,17 @@ const sendEmail = (user) => {
     });
 }
 
-const EmailSubmitter = ({ type, email = null, user }) => {
+const EmailSubmitter = ({ type, userid, data, email = null, children }) => {
   return (
-      <Button onClick={ () => sendEmail(user) }>Submit</Button>
+      <Button onClick={ () => sendEmail(userid, data) }>{ children }</Button>
   )
 }
 
-export default connect(mapStateToProps, null)(EmailSubmitter);
+EmailSubmitter.propTypes = {
+  type: PropTypes.string,
+  userid: PropTypes.string.isRequired,
+  data: PropTypes.object.isRequired,
+  email: PropTypes.string
+}
+
+export default EmailSubmitter;
