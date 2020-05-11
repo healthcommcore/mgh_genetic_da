@@ -44,7 +44,7 @@ const _hasContent = (obj, field1, field2 = false) => {
 
 const _hasValidField2 = (obj, field1, field2) => {
   const component = obj[field1];
-  if (Array.isArray(component)) {
+  if (Array.isArray(component) && component.length > 0) {
     return component[0].hasOwnProperty(field2) && component[0][field2];
   }
   else if (component.hasOwnProperty(field2)) {

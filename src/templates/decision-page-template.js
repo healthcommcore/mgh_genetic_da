@@ -51,6 +51,11 @@ export const query = graphql`
           field_accordion_body {
             processed
           }
+          relationships {
+            field_cancer_type {
+              name
+            }
+          }
         }
         field_content_module {
           field_module_title
