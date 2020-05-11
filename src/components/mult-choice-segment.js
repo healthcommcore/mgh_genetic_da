@@ -21,13 +21,15 @@ const mapDispatchToProps = (dispatch) => {
 const MultChoiceSegment = ({ content, savedInput, setTestInput }) => {
   const type = content.field_can_choose_multiple ? "checkbox" : "radio";
   const name = urlify(content.relationships.field_relevance.name);
+  //console.log(savedInput[toCamelCase(name)]);
   return (
     <Form>
       { content.field_intro_to_options && <p>{ content.field_intro_to_options }</p> }
       { content.field_option_name.map( (option, i) => {
+        let saved = savedInput[toCamelCase(name)];
         return (
           <Form.Check 
-            defaultChecked={ savedInput[toCamelCase(name)] === option }
+            defaultChecked={ Array.isArray(saved) ? saved.includes(option) : saved === option }
             type={ type } 
             label={ option } 
             key={ i } 
