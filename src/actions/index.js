@@ -29,7 +29,6 @@ const initializeMenu = (drupalMenu) => {
 }
 
 const setNewCurrent = (path) => {
-  console.log(path);
   return {
     type: `SET_NEW_CURRENT`,
     path

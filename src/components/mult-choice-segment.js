@@ -4,6 +4,12 @@ import { setTestInput } from "../actions";
 import { connect } from "react-redux";
 import { urlify, toCamelCase } from "../helpers";
 
+const mapStateToProps = (state) => {
+  return {
+    savedInput: state.user.test
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     setTestInput: (e) => {
@@ -12,19 +18,20 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const MultChoiceSegment = ({ content, setTestInput }) => {
+const MultChoiceSegment = ({ content, savedInput, setTestInput }) => {
   const type = content.field_can_choose_multiple ? "checkbox" : "radio";
-  const name = content.relationships.field_relevance.name;
+  const name = urlify(content.relationships.field_relevance.name);
   return (
     <Form>
       { content.field_intro_to_options && <p>{ content.field_intro_to_options }</p> }
       { content.field_option_name.map( (option, i) => {
         return (
           <Form.Check 
+            defaultChecked={ savedInput[toCamelCase(name)] === option }
             type={ type } 
             label={ option } 
             key={ i } 
-            name={ urlify(name) }
+            name={ name }
             value={ option }
             onChange={ setTestInput }
           />
@@ -34,4 +41,4 @@ const MultChoiceSegment = ({ content, setTestInput }) => {
   );
 }
 
-export default connect(null, mapDispatchToProps)(MultChoiceSegment);
+export default connect(mapStateToProps, mapDispatchToProps)(MultChoiceSegment);
