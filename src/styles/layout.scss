@@ -3,12 +3,65 @@
 
 // Colors
 $bkgrd: #DEFBFF;
+$dk-gray: #48545E;
+$mgh-blue: #6DCBC9;
+$orange: #EA7763;
 
 $btn-bkgrd: #F5674D;
 
 
 body {
   background: $bkgrd;
+}
+
+// Header
+.header-left {
+  background: $dk-gray;
+  width: 45%;
+  text-align: right;
+  border-right: #fff 7px solid;
+}
+
+.header-right {
+  background: $mgh-blue;
+  width: 55%;
+  text-left: right;
+}
+
+.header-padding-left {
+  padding: 0.5em 1.1em 0 0;
+}
+
+.header-padding-right {
+  padding: 0.7em 0 0 0.9em;
+}
+
+.header {
+  height: 3.0em;
+  float: left;
+  img {
+    display: inline-block;
+  }
+}
+
+// Nav
+
+.nav-bkgrd {
+  background: #fff;
+}
+
+.nav {
+  .nav-item {
+    display:block;
+    text-align: center;
+    .nav-link {
+      padding-left: 0;
+      padding-right: 0;
+      line-height: 1.0em;
+      font-size: 0.8em;
+      color: $orange;
+    }
+  }
 }
 
 .btn-da {

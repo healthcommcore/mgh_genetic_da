@@ -9,11 +9,4 @@ const mapStateToProps = (state) => {
   };
 }
 
-/*
-const mapDispatchtoProps = (dispatch) => {
-  return {
-  }
-}
-*/
-
 export default connect(mapStateToProps, null)(NavMenu);
