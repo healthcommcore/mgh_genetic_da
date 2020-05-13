@@ -5,6 +5,7 @@ import Layout from "../components/layout";
 import PageTitle from "../components/page-title";
 import PageBody from "../components/page-body";
 import NavContainer from "../containers/nav-container";
+import NotesArea from "../components/notes-area";
 import ButtonsContainer from "../containers/buttons-container";
 
 const DecisionPageTemplate = ({ data }) => {
@@ -24,6 +25,7 @@ const DecisionPageTemplate = ({ data }) => {
         complexContent={ node.relationships }
         outro={ node.field_outro_text }
       />
+      <NotesArea />
       <ButtonsContainer />
     </Layout>
   );

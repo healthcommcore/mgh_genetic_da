@@ -5,6 +5,13 @@ const setUser = (userInfo) => {
   }
 }
 
+const setNotes = (notes) => {
+  return {
+    type: `SET_NOTES`,
+    notes
+  }
+}
+
 const setValue = (e) => {
   return {
     type: `SET_VALUE`,
@@ -62,4 +69,14 @@ const adminLogin = (submitted) => {
 }
 
 
-export { setUser, setValue, setTestInput, initializeMenu, advance, retreat, setNewCurrent, adminLogin };
+export { 
+  setUser, 
+  setNotes,
+  setValue, 
+  setTestInput, 
+  initializeMenu, 
+  advance, 
+  retreat, 
+  setNewCurrent, 
+  adminLogin 
+};

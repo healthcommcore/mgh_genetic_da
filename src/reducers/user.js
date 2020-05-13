@@ -2,6 +2,7 @@ const initialState = {
   userid: "", 
   cancerType: "",
   site: "",
+  notes: "",
   values: {},
   test: {
     doYouWantGeneticTest: null,
@@ -21,6 +22,9 @@ const user = (state = initialState, action) => {
   switch(action.type) {
     case `SET_USER`:
       return Object.assign({}, state, { ...action.userInfo });
+    case `SET_NOTES`:
+      stateCopy.notes = action.notes;
+      return Object.assign({}, state, { ...stateCopy });
     case `SET_VALUE`:
       stateCopy.values[action.valueInfo.target.name] = action.valueInfo.target.value;
       return Object.assign({}, state, { ...stateCopy });
