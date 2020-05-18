@@ -42,6 +42,8 @@ const Admin = ({ isLoggedIn, showError, user, handleSubmit }) => {
             <Card.Text>This is where admins can check participant entries</Card.Text>
             <AdminTable 
               userid={ user.userid }
+              cancerType={ user.cancerType }
+              site={ user.site }
               data={ user.test }
             />
             <EmailSubmitter 

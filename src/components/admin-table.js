@@ -36,7 +36,7 @@ const getTestDetails = (test) => {
   )
 }
 
-const AdminTable = ({ userid, data }) => {
+const AdminTable = ({ userid, cancerType, site, data }) => {
   return (
     <Table striped>
       <thead>
@@ -48,6 +48,16 @@ const AdminTable = ({ userid, data }) => {
         <tr>
           <td>User id</td>
           <td><Form.Control type="text" value={ userid } /></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Cancer type</td>
+          <td>{ cancerType }</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Site</td>
+          <td>{ site }</td>
           <td></td>
         </tr>
         <tr>
@@ -63,6 +73,8 @@ const AdminTable = ({ userid, data }) => {
 
 AdminTable.propTypes = {
   userid: PropTypes.string.isRequired,
+  cancerType: PropTypes.string.isRequired,
+  site: PropTypes.string.isRequired,
   data: PropTypes.object.isRequired
 }
 
