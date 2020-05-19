@@ -21,7 +21,6 @@ const mapDispatchToProps = (dispatch) => {
 
 const NotesArea = ({ notes, handleChange }) => {
   const placeholder = "Write your questions or comments here, you can see or print them later"
-  console.log(notes);
   return (
     <div className="notes-area">
       <Container>

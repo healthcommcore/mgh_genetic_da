@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import { Link } from "gatsby";
 import { ucFirst, urlify } from "../helpers";
 
-const PrevNextButtons = ({ prevNext, advance, retreat }) => {
+const PrevNextButtons = ({ prevNext, isOrphan, advance, retreat }) => {
   const keys = Object.keys(prevNext);
   const link = {
     previous: retreat,
@@ -16,21 +16,27 @@ const PrevNextButtons = ({ prevNext, advance, retreat }) => {
   return (
     <Container>
       <Row>
-        { keys.map( (key) => {
-            if (prevNext[key] && key !== "current") {
-              return (
-                <Col md="6" sm="12">
-                  <NavButton 
-                    className="btn-prev-next"
-                    path={ prevNext[key].path }
-                    onClick={ link[key] }
-                  >
-                    { ucFirst(key) }
-                  </NavButton>
-                </Col>
-              );
-            }
-          })}
+      { isOrphan ?
+        <NavButton path={ prevNext.current.path }>{ "Back to " + prevNext.current.title }</NavButton>
+        :
+        <>
+          { keys.map( (key, i) => {
+              if (prevNext[key] && key !== "current") {
+                return (
+                  <Col md="6" sm="12" key={ i }>
+                    <NavButton 
+                      className="btn-prev-next"
+                      path={ prevNext[key].path }
+                      onClick={ link[key] }
+                    >
+                      { ucFirst(key) }
+                    </NavButton>
+                  </Col>
+                );
+              }
+            })}
+        </>
+      }
       </Row>
     </Container>
   );

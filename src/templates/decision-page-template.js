@@ -26,7 +26,7 @@ const DecisionPageTemplate = ({ data }) => {
         outro={ node.field_outro_text }
       />
       <NotesArea />
-      <ButtonsContainer />
+      <ButtonsContainer isOrphan={ node.field_is_orphan_page } />
     </Layout>
   );
 }
@@ -36,6 +36,7 @@ export const query = graphql`
   query($id: String!) {
     nodeDecisionAidPage(id: {eq: $id} ) {
       title
+      field_is_orphan_page
       field_video_caption
       field_intro_text {
         processed

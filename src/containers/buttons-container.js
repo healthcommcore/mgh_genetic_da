@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 import { advance, retreat } from "../actions";
 import PrevNextButtons from "../components/prev-next-buttons";
 
-const mapStateToProps = (state) => {
-  return { prevNext: state.navigation.navPaths };
+const mapStateToProps = (state, isOrphan) => {
+  return { 
+    prevNext: state.navigation.navPaths
+  };
 }
 
 const mapDispatchToProps = (dispatch) => {
