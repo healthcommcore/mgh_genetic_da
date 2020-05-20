@@ -12,11 +12,13 @@ const setNotes = (notes) => {
   }
 }
 
-const setValue = (e, heading) => {
+const setValue = (e, heading, leftLabel, rightLabel) => {
   return {
     type: `SET_VALUE`,
     valueInfo: e,
-    heading
+    heading,
+    leftLabel,
+    rightLabel
   }
 }
 

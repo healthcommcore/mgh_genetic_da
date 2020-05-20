@@ -15,8 +15,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setValue: (e, heading) => {
-      dispatch( setValue(e, heading) );
+    setValue: (e, heading, leftLabel, rightLabel) => {
+      dispatch( setValue(e, heading, leftLabel, rightLabel) );
     }
   }
 }
@@ -35,7 +35,7 @@ const ValuesScale = ({ num, heading, leftLabel, rightLabel, setValue, values }) 
               name={ name } 
               value={ sn } 
               className="rounded-circle"
-              onChange={ (e) => setValue(e, heading) }>
+              onChange={ (e) => setValue(e, heading, leftLabel, rightLabel) }>
             </ToggleButton>
           );
         })}

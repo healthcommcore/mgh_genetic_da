@@ -31,6 +31,8 @@ const user = (state = initialState, action) => {
       index = Number(index);
       stateCopy.values[index] = {
         heading: action.heading,
+        leftLabel: action.leftLabel,
+        rightLabel: action.rightLabel,
         value: action.valueInfo.target.value
       }
       return Object.assign({}, state, { ...stateCopy });
