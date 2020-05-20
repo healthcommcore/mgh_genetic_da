@@ -2,6 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import ValuesContent from "./values-content";
 import VideoContent from "../components/video-content";
+import SummaryContent from "./summary-content";
 import AccordionContent from "../components/accordion-content";
 import ContentModule from "./content-module";
 import { setHTML, exists, getContent } from "../helpers";
@@ -29,6 +30,11 @@ const PageBody = ({ page, video, videoCaption, intro, outro, complexContent }) =
           </>
         :
           <AccordionContent accordions={ accordions } />
+      }
+      { 
+        page === "summary" ?
+          <SummaryContent />
+        : ""
       }
       <ContentModule content={ complexContent } />
       <ValuesContent list={ values } />
