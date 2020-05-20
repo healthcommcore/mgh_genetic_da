@@ -15,8 +15,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setValue: (e) => {
-      dispatch( setValue(e) );
+    setValue: (e, heading) => {
+      dispatch( setValue(e, heading) );
     }
   }
 }
@@ -26,8 +26,8 @@ const ValuesScale = ({ num, heading, leftLabel, rightLabel, setValue, values }) 
   const name = "scale-" + num;
   return (
     <div className="values-scale">
-      <h3>{ num }. { heading }</h3>
-      <ToggleButtonGroup type="radio" value={ Number(values[name]) } name={ name }>
+      <h3>{ num + 1 }. { heading }</h3>
+      <ToggleButtonGroup type="radio" value={ values[num] && Number(values[num].value) } name={ name }>
         { SCALE_NUM.map( (sn, i) => {
           return (
             <ToggleButton 
@@ -35,7 +35,7 @@ const ValuesScale = ({ num, heading, leftLabel, rightLabel, setValue, values }) 
               name={ name } 
               value={ sn } 
               className="rounded-circle"
-              onChange={ setValue }>
+              onChange={ (e) => setValue(e, heading) }>
             </ToggleButton>
           );
         })}

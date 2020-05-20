@@ -3,7 +3,7 @@ const initialState = {
   cancerType: "",
   site: "",
   notes: "",
-  values: {},
+  values: [],
   test: {
     doYouWantGeneticTest: null,
     notReadyToDecide: [],
@@ -26,7 +26,13 @@ const user = (state = initialState, action) => {
       stateCopy.notes = action.notes;
       return Object.assign({}, state, { ...stateCopy });
     case `SET_VALUE`:
-      stateCopy.values[action.valueInfo.target.name] = action.valueInfo.target.value;
+      // Convert the "scale-<num>" string to just the <num> integer value
+      let index = action.valueInfo.target.name.split("-").pop();
+      index = Number(index);
+      stateCopy.values[index] = {
+        heading: action.heading,
+        value: action.valueInfo.target.value
+      }
       return Object.assign({}, state, { ...stateCopy });
     case `SET_TEST_INPUT`:
       if (action.inputType === "checkbox") {

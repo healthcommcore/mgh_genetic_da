@@ -6,7 +6,7 @@ const ValuesContent = ({ list }) => {
     list.map( (item, i) => {
       return (
         <ValuesScale
-          num={ i + 1 }
+          num={ i }
           key={ i }
           heading={ item.field_value_heading }
           leftLabel={ item.field_l } 

@@ -12,10 +12,11 @@ const setNotes = (notes) => {
   }
 }
 
-const setValue = (e) => {
+const setValue = (e, heading) => {
   return {
     type: `SET_VALUE`,
-    valueInfo: e
+    valueInfo: e,
+    heading
   }
 }
 
