@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Fade from "react-bootstrap/Fade";
 import AdminModal from "../components/admin-modal";
 import AdminTable from "../components/admin-table";
+import SummaryValue from "../components/summary-value";
 import EmailSubmitter from "../components/email-submitter";
 import { connect } from "react-redux";
 import { adminLogin } from "../actions";
@@ -36,25 +37,40 @@ const Admin = ({ isLoggedIn, showError, user, handleSubmit }) => {
         modalSubmit={ (e, value) => handleSubmit(e, value) }
       />
       <Fade in={ isLoggedIn }>
+        <>
+        <h1>Admin area</h1>
+        <h2>User info and test data</h2>
         <Card>
           <Card.Body>
-            <Card.Title>Admin area</Card.Title>
-            <Card.Text>This is where admins can check participant entries</Card.Text>
             <AdminTable 
               userid={ user.userid }
               cancerType={ user.cancerType }
               site={ user.site }
-              data={ user.test }
+              test={ user.test }
             />
-            <EmailSubmitter 
-              type="admin"
-              userid={ user.userid }
-              data={ user.test }
-            >
-              Submit user data
-            </EmailSubmitter>
           </Card.Body>
         </Card>
+        <h2>Responses to What's important to you</h2>
+        { user.values.map( (value, i) => {
+          return value && (
+            <SummaryValue
+              key={ i }
+              num={ i + 1 }
+              heading={ value.heading }
+              leftLabel={ value.leftLabel }
+              rightLabel={ value.rightLabel }
+              value={ value.value }
+            />
+          );
+        })}
+        <EmailSubmitter 
+          type="admin"
+          userid={ user.userid }
+          data={ user.test }
+        >
+          Submit user data
+        </EmailSubmitter>
+      </>
       </Fade>
     </Container>
   );

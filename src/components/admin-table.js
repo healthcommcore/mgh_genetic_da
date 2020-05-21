@@ -7,7 +7,7 @@ import NavButton from "../components/nav-button";
 
 
 
-const AdminTable = ({ userid, cancerType, site, data }) => {
+const AdminTable = ({ userid, cancerType, site, test, values }) => {
   return (
     <Table striped>
       <thead>
@@ -33,10 +33,10 @@ const AdminTable = ({ userid, cancerType, site, data }) => {
         </tr>
         <tr>
           <td>Wants test?</td>
-          <td>{ data.doYouWantGeneticTest }</td>
+          <td>{ test.doYouWantGeneticTest }</td>
           <td><NavButton path="/its-your-decision">Change</NavButton></td>
         </tr>
-        <TestDecision test={ data }>
+        <TestDecision test={ test }>
           { (resp, field, value, path) => {
             return (
               <tr>
