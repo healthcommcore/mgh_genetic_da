@@ -65,8 +65,7 @@ const Admin = ({ isLoggedIn, showError, user, handleSubmit }) => {
         })}
         <EmailSubmitter 
           type="admin"
-          userid={ user.userid }
-          data={ user.test }
+          data={ user }
         >
           Submit user data
         </EmailSubmitter>

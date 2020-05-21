@@ -3,14 +3,21 @@ import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import PropTypes from "prop-types";
 
-const sendEmail = (id, data) => {
-  const user = {
-    id,
-    decision: data.doYouWantGeneticTest,
-    test: data.testTypes || "no test selected",
-    nextSteps: data.notReadyToDecide.length > 0 && data.notReadyToDecide.join(", ")
+const sendEmail = (data) => {
+  const payload = {
+    userBasic: {
+      id: data.userid,
+      cancerType: data.cancerType,
+      site: data.site
+    },
+    userTest : {
+      decision: data.test.doYouWantGeneticTest,
+      test: data.test.testTypes || "no test selected",
+      nextSteps: data.test.notReadyToDecide && data.test.notReadyToDecide.length > 0 && data.test.notReadyToDecide.join(", ")
+    },
+    userValues: data.values
   };
-
+  const json = JSON.stringify(payload);
   fetch("http://api.geneticda.hccstaging.com/sendmail.php",
     {
       method: "post",
@@ -18,7 +25,7 @@ const sendEmail = (id, data) => {
         "Content-Type" : "application/json",
         "Accept" : "application/json" 
       },
-      body: JSON.stringify(user)
+      body: json
     })
     .then( (response) => {
       console.log(response);
@@ -28,9 +35,9 @@ const sendEmail = (id, data) => {
     });
 }
 
-const EmailSubmitter = ({ type, userid, data, email = null, children }) => {
+const EmailSubmitter = ({ type, data, email = null, children }) => {
   return (
-      <Button onClick={ () => sendEmail(userid, data) }>{ children }</Button>
+      <Button onClick={ () => sendEmail(data) }>{ children }</Button>
   )
 }
 

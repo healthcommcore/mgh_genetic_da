@@ -7,7 +7,7 @@ import NavButton from "../components/nav-button";
 
 
 
-const AdminTable = ({ userid, cancerType, site, test, values }) => {
+const AdminTable = ({ userid, cancerType, site, test }) => {
   return (
     <Table striped>
       <thead>
