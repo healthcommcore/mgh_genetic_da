@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import SummaryValue from "./summary-value";
-import SummaryTestDecision from "./summary-test-decision";
+import TestDecision from "./test-decision";
 
 const mapStateToProps = (state) => {
   return {
@@ -28,7 +28,18 @@ const SummaryContent = ({ test, values }) => {
       })}
       <h2>Your decision</h2>
       <p>Here's what you decided to do next:</p>
-      <SummaryTestDecision test={ test } />
+      <TestDecision test={ test }>
+        { (resp, field, value, path) => {
+          return (
+            <>
+              <p>Do you want genetic testing?<br />
+              <strong>{ resp }</strong></p>
+              <p>{ field }<br />
+              <strong>{ value }</strong></p>
+            </>
+          );
+        }}
+      </TestDecision>
     </>
   );
 }

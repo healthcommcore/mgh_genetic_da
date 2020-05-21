@@ -2,39 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
+import TestDecision from "../components/test-decision";
 import NavButton from "../components/nav-button";
 
-const getTestDetails = (test) => {
-  const type = test.doYouWantGeneticTest.split(" ")[0].toLowerCase().replace(/\W/g, "");
-  let field, value, path;
-  switch (type) {
-    case "yes":
-      if (!test.testTypes && test.notSureWhichTest.length > 0) {
-        field = "Reasons not ready to choose test";
-        value = test.notSureWhichTest.join(", ");
-      }
-      else {
-        field = "Test type";
-        value = test.testTypes || "no test selected";
-      }
-      path = "/choose-a-test";
-    break;
-    case "im":
-      field = "Next steps";
-      value = test.notReadyToDecide.length > 0 && test.notReadyToDecide.join(", ");
-      path = "/its-your-decision";
-    break;
-    default:
-      return;
-  }
-  return (
-    <tr>
-      <td>{ field }</td>
-      <td>{ value }</td>
-      <td><NavButton path={ path }>Change</NavButton></td>
-    </tr>
-  )
-}
+
 
 const AdminTable = ({ userid, cancerType, site, data }) => {
   return (
@@ -65,7 +36,17 @@ const AdminTable = ({ userid, cancerType, site, data }) => {
           <td>{ data.doYouWantGeneticTest }</td>
           <td><NavButton path="/its-your-decision">Change</NavButton></td>
         </tr>
-        { getTestDetails(data) }
+        <TestDecision test={ data }>
+          { (resp, field, value, path) => {
+            return (
+              <tr>
+                <td>{ field }</td>
+                <td>{ value }</td>
+                <td><NavButton path={ path }>Change</NavButton></td>
+              </tr>
+            )
+          }}
+        </TestDecision>
       </tbody>
     </Table>
   )
