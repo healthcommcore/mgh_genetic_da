@@ -34,6 +34,10 @@ const getContent = (obj, field1, field2 = false) => {
   return _hasContent(obj, field1, field2) && obj[field1];
 }
 
+const abbreviate = (test) => {
+  return test.split(" ")[0].toLowerCase().replace(/\W/g, "");
+}
+
 const _hasContent = (obj, field1, field2 = false) => {
   const hasField1 = obj.hasOwnProperty(field1) && obj[field1] != null;
   if (!field2) {
@@ -62,6 +66,7 @@ export {
   urlify, 
   exists, 
   ucFirst, 
+  abbreviate, 
   getContent, 
   toCamelCase 
 };

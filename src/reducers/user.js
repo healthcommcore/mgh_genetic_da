@@ -1,3 +1,5 @@
+import { abbreviate } from "../helpers";
+
 const initialState = { 
   userid: "", 
   cancerType: "",
@@ -37,15 +39,17 @@ const user = (state = initialState, action) => {
       }
       return Object.assign({}, state, { ...stateCopy });
     case `SET_TEST_INPUT`:
+      const response = abbreviate(action.inputValue);
       if (action.inputType === "checkbox") {
         handleCheckbox(stateCopy, action.inputName, action.inputValue);
       }
       else {
         if (action.inputName === "doYouWantGeneticTest") {
-          handleVisibility(stateCopy, action.inputValue);
+          handleVisibility(stateCopy, response);
         }
         stateCopy.test[action.inputName] = action.inputValue;
       }
+      applyTestLogic(stateCopy, response);
       return Object.assign({}, state, { ...stateCopy });
     default:
       return state;
@@ -60,9 +64,8 @@ const handleCheckbox = (stateCopy, name, value) => {
   */
 }
 
-const handleVisibility = (stateCopy, selected) => {
+const handleVisibility = (stateCopy, response) => {
   const currVisibilities = stateCopy.test.visibility;
-  const response = selected.split(" ")[0].replace(/\W/, "").toLowerCase();
   Object.keys(currVisibilities).forEach( (key) => {
     if (key === response) {
       stateCopy.test.visibility[key] = true;
@@ -72,5 +75,24 @@ const handleVisibility = (stateCopy, selected) => {
     }
   });
 }
+
+const applyTestLogic = (stateCopy, response) => {
+  switch(response) {
+    case "no":
+      stateCopy.test.notSureWhichTest = [];
+    case "no":
+    case "yes":
+      stateCopy.test.notReadyToDecide = [];
+    case "think":
+    case "talk":
+    case "no":
+      stateCopy.test.testTypes = null;
+      break;
+    case "test":
+      stateCopy.test.notSureWhichTest = [];
+      break;
+  }
+}
+  
 
 export default user;

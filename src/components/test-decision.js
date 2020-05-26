@@ -1,9 +1,10 @@
 import React from "react";
+import { abbreviate } from "../helpers";
 
 
 const TestDecision = ({ test, children }) => {
   const resp = test.doYouWantGeneticTest;
-  const type = resp.split(" ")[0].toLowerCase().replace(/\W/g, "");
+  const type = abbreviate(resp);
   let field, value, path;
   switch (type) {
     case "yes":
