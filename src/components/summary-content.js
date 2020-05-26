@@ -2,15 +2,17 @@ import React from "react";
 import { connect } from "react-redux";
 import SummaryValue from "./summary-value";
 import TestDecision from "./test-decision";
+import EmailSubmitter from "./email-submitter";
 
 const mapStateToProps = (state) => {
   return {
-    test: state.user.test,
-    values: state.user.values
+    user: state.user
   }
 }
 
-const SummaryContent = ({ test, values }) => {
+const SummaryContent = ({ user }) => {
+  const test = user.test;
+  const values = user.values;
   return (
     <>
       <h2>What's important to you?</h2>
@@ -40,6 +42,10 @@ const SummaryContent = ({ test, values }) => {
           );
         }}
       </TestDecision>
+      <p>Provide your email address to receive a copy of your responses and notes:</p>
+      <EmailSubmitter type="user" data={ user }>
+        Email summary to myself
+      </EmailSubmitter>
     </>
   );
 }
