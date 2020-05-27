@@ -1,18 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 import FieldInput from "./field-input";
 import { Field, reduxForm } from "redux-form";
 
 let LoginForm = ({ cancers, sites, handleSubmit }) => {
+  const [userid, updateId] = useState("");
+  const [match, confirmMatch] = useState(false);
+  const [show, showAlert] = useState(false);
   return (
     <Container>
       <Form className="login" onSubmit={ handleSubmit }>
         <Form.Group controlId="patientID">
           <Form.Label>Enter patient ID</Form.Label>
-          <Field name="userid" component={ FieldInput } />
-
+          <Field name="userid" component={ FieldInput } onChange={ (e) => updateId(e.target.value) }/>
+        </Form.Group>
+        <Alert variant={ match ? "success" : "danger" } show={ show }>
+          The two patient ids { !match && "do not" } match!
+        </Alert>
+        <Form.Group controlId="patientIDConfirm">
+          <Form.Label>Re-enter patient ID</Form.Label>
+          <Form.Control 
+            name="useridconfirm" 
+            type="text"
+            component={ FieldInput } 
+            onChange={ (e) => confirmMatch(e.target.value === userid) }
+            onFocus={ () => showAlert(true) }
+          />
         </Form.Group>
         <Form.Group controlId="cancerType">
           <Form.Label>Select cancer type</Form.Label>

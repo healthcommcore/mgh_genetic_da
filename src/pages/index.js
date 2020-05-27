@@ -14,11 +14,6 @@ import LoginForm from "../components/login-form";
 import { setUser } from "../actions";
 import { navigate, graphql } from "gatsby";
 
-
-const mapStateToProps = (state) => {
-  return { user: state.user };
-}
-
 const mapDispatchToProps = (dispatch) => {
   return {
     setUser: (values) => {
@@ -66,7 +61,7 @@ export const query = graphql`
 
 // Use redux's connect method to map Login's form values to the action dispatcher using
 // mapDispatchToProps
-Index =  connect(mapStateToProps, mapDispatchToProps)(Index);
+Index =  connect(null, mapDispatchToProps)(Index);
 
 // Export the connected component, decorating it with reduxForm to connect the redux form
 // to redux

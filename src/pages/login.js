@@ -22,8 +22,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setUser: (values) => {
       if (Object.entries(values).length == 3) {
-        dispatch( setUser(values) );
-        navigate("/welcome");
+        console.log(values);
+        //dispatch( setUser(values) );
+        //navigate("/welcome");
       }
     }
   }
