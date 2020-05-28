@@ -2,16 +2,27 @@
 @import "./custom.scss";
 
 // Colors
-$bkgrd: #DEFBFF;
+
 $dk-gray: #48545E;
-$mgh-blue: #6DCBC9;
 $orange: #EA7763;
+
+$bkgrd: #DEFBFF;
+$dk-navy: #004367;
+$mgh-blue: #6DCBC9;
+$teal-blue: #00799D;
+
+$med-yellow: #FFFCB7;
+$pale-yellow: #EDE9CA;
 
 $btn-bkgrd: #F5674D;
 
+// Numbers
+
+$title-margin: 45px;
 
 body {
   background: $bkgrd;
+  color: $dk-navy;
 }
 
 // Header
@@ -62,6 +73,23 @@ body {
       color: $orange;
     }
   }
+}
+
+// Body
+
+.title-border {
+  border-bottom: $med-yellow 4px solid;
+}
+
+.title-bkgrd {
+  background-color: $teal-blue;
+  margin-left: $title-margin;
+}
+
+h1 {
+  color: $pale-yellow;
+  margin-bottom: 0;
+  margin-left: -#{$title-margin};
 }
 
 .btn-da {
