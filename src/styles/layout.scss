@@ -1,115 +1,46 @@
-/* Layout */
-@import "./custom.scss";
+// Grid
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 728px,
+  lg: 800px,
+  xl: 1140px
+);
 
-// Colors
+$container-max-widths: (
+  sm: 540px,
+  md: 680px,
+  lg: 770px,
+  xl: 1200px
+);
 
-$dk-gray: #48545E;
-$orange: #EA7763;
+@import "~bootstrap/scss/bootstrap";
 
-$bkgrd: #DEFBFF;
-$dk-navy: #004367;
-$mgh-blue: #6DCBC9;
-$teal-blue: #00799D;
+$global-margin: 15px;
+$title-container-lg: 787px; 
+$left-margin-container-lg: 676px; 
+$content-container-lg: 614px;
 
-$med-yellow: #FFFCB7;
-$pale-yellow: #EDE9CA;
-
-$btn-bkgrd: #F5674D;
-
-// Numbers
-
-$title-margin: 45px;
-
-body {
-  background: $bkgrd;
-  color: $dk-navy;
+.title-container {
+  width: 100%;
 }
 
-// Header
-.header-left {
-  background: $dk-gray;
-  width: 45%;
-  text-align: right;
-  border-right: #fff 7px solid;
+.left-margin-container {
+  width: $left-margin-container-lg;
 }
 
-.header-right {
-  background: $mgh-blue;
-  width: 55%;
-  text-left: right;
+.content-container {
+  width: $content-container-lg;
+  margin: 0 auto;
 }
 
-.header-padding-left {
-  padding: 0.5em 1.1em 0 0;
+.left-page-title-margin {
+  width: 100%;
+  margin-left: 6%;
 }
 
-.header-padding-right {
-  padding: 0.7em 0 0 0.9em;
+.left-content-margin {
+  margin-left: $left-margin-container-lg - $content-container-lg
+  -$global-margin;;
 }
 
-.header {
-  height: 3.0em;
-  float: left;
-  img {
-    display: inline-block;
-  }
-}
-
-// Nav
-
-.nav-bkgrd {
-  background: #fff;
-}
-
-.nav {
-  .nav-item {
-    display:block;
-    text-align: center;
-    .nav-link {
-      padding-left: 0;
-      padding-right: 0;
-      line-height: 1.0em;
-      font-size: 0.8em;
-      color: $orange;
-    }
-  }
-}
-
-// Body
-
-.title-border {
-  border-bottom: $med-yellow 4px solid;
-}
-
-.title-bkgrd {
-  background-color: $teal-blue;
-  margin-left: $title-margin;
-}
-
-h1 {
-  color: $pale-yellow;
-  margin-bottom: 0;
-  margin-left: -#{$title-margin};
-}
-
-.btn-da {
-  background: $btn-bkgrd;
-  border: #fff 3px solid;
-  color: #fff;
-}
-
-.test-choices {
-  min-height: 300px;
-}
-
-.top-layer {
-  z-index: 999;
-}
-
-.bottom-layer {
-  z-index: 10;
-}
-
-.notes-area {
-  margin: 3.2em 0 4.3em 0;
-}

@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
+import ContentContainer from "./content-container";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import { setNotes } from "../actions";
@@ -22,8 +22,7 @@ const mapDispatchToProps = (dispatch) => {
 const NotesArea = ({ notes, handleChange }) => {
   const placeholder = "Write your questions or comments here, you can see or print them later"
   return (
-    <div className="notes-area">
-      <Container>
+      <ContentContainer className="notes-margin">
         <Card>
           <Card.Header>Notes</Card.Header>
           <Card.Body>
@@ -36,8 +35,7 @@ const NotesArea = ({ notes, handleChange }) => {
           />
           </Card.Body>
         </Card>
-      </Container>
-    </div>
+      </ContentContainer>
   );
 }
 

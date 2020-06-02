@@ -8,7 +8,7 @@ import NavButton from "./nav-button";
 
 const NavMenu = ({ menuItems, isAdminLoggedIn }) => {
   return (
-    <div className="nav-bkgrd">
+    <div className="nav-bkgrd nav-margin">
       <Container>
         <Nav justify>
           { menuItems.map( (item, i) => {

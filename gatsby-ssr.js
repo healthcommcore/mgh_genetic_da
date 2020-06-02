@@ -6,4 +6,6 @@
 
 // You can delete this file if you're not using it
 import wrapWithProvider from "./wrap-with-provider";
+import wrapWithHelmet from "./wrap-with-helmet";
 export const wrapRootElement = wrapWithProvider;
+export const wrapPageElement = wrapWithHelmet;

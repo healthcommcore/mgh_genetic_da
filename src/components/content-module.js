@@ -19,7 +19,7 @@ const ContentModule = ({ content }) => {
         { modules.map( (module, i) => {
           const segments = module.relationships.field_content_segment;
           return (
-            <Card key={ i }>
+            <Card key={ i } bsPrefix="card content-module">
               <Card.Body>
                 <Card.Title>{ module.field_module_title }</Card.Title>
                 { segments.map( (segment, j) => {

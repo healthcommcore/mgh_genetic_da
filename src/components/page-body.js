@@ -5,6 +5,7 @@ import VideoContent from "../components/video-content";
 import SummaryContent from "./summary-content";
 import AccordionContent from "../components/accordion-content";
 import ContentModule from "./content-module";
+import ContentContainer from "./content-container";
 import { setHTML, exists, getContent } from "../helpers";
 
 const PageBody = ({ page, video, videoCaption, intro, outro, complexContent }) => {
@@ -20,25 +21,27 @@ const PageBody = ({ page, video, videoCaption, intro, outro, complexContent }) =
         caption={ videoCaption } 
         placeholder={ vidPlaceholder }
       />
-      { exists(intro) ? setHTML(intro.processed) : "" }
-      { 
-        page === "choose-a-test" ?
-          <>
-            <AccordionContent accordions={ accordions.slice(0, -1) } />
-            <h2>Compare test options</h2>
-            <AccordionContent accordions={ accordions.slice(-1) } />
-          </>
-        :
-          <AccordionContent accordions={ accordions } />
-      }
-      { 
-        page === "summary" ?
-          <SummaryContent />
-        : ""
-      }
-      <ContentModule content={ complexContent } />
+      <ContentContainer>
+        { exists(intro) ? <div className="intro-outro-content-margin">{ setHTML(intro.processed) } </div> : "" }
+        { 
+          page === "choose-a-test" ?
+            <>
+              <AccordionContent accordions={ accordions.slice(0, -1) } />
+              <h2>Compare test options</h2>
+              <AccordionContent accordions={ accordions.slice(-1) } />
+            </>
+          :
+            <AccordionContent accordions={ accordions } />
+        }
+        { 
+          page === "summary" ?
+            <SummaryContent />
+          : ""
+        }
+        <ContentModule content={ complexContent } />
+      </ContentContainer>
       <ValuesContent list={ values } />
-      { exists(outro) ? setHTML(outro.processed)  : "" }
+      { exists(outro) ? <div className="intro-outro-content-margin">{ setHTML(outro.processed) } </div> : "" }
     </Container>
   );
 }

@@ -8,4 +8,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import wrapWithProvider from "./wrap-with-provider";
+import wrapWithHelmet from "./wrap-with-helmet";
 export const wrapRootElement = wrapWithProvider;
+export const wrapPageElement = wrapWithHelmet;

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import NavButton from "./nav-button.js";
-import Container from "react-bootstrap/Container";
+import ContentContainer from "./content-container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "gatsby";
@@ -14,7 +14,7 @@ const PrevNextButtons = ({ prevNext, isOrphan, advance, retreat }) => {
     next: advance
   }
   return (
-    <Container>
+    <ContentContainer>
       <Row>
       { isOrphan ?
         <NavButton path={ prevNext.current.path }>{ "Back to " + prevNext.current.title }</NavButton>
@@ -38,7 +38,7 @@ const PrevNextButtons = ({ prevNext, isOrphan, advance, retreat }) => {
         </>
       }
       </Row>
-    </Container>
+    </ContentContainer>
   );
 }
 

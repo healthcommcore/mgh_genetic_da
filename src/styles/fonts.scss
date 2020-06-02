@@ -1,0 +1,51 @@
+$freight: "freight-sans-pro";
+$frank: "frank-new";
+$roboto: "roboto-condensed";
+
+$lt: 300;
+$reg: 400;
+$med: 500;
+$semi: 600;
+$bold: 700;
+
+body {
+  font-family: $freight;
+  font-weight: $lt;
+  font-size: 1.5em;
+  line-height: 1.4em;
+}
+
+// Nav
+.nav-link {
+  font-family: $roboto;
+  font-weight: $reg;
+  font-size: 0.85rem;
+  line-height: 1.0em;
+}
+
+h1, h2 {
+  font-family: $frank;
+}
+
+h1 {
+  font-weight: $reg;
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1em;
+  padding: 0.2em 0;
+}
+
+h2 {
+  font-weight: $med;
+  font-size: 1.6rem;
+  line-height: 1.3em;
+  letter-spacing: -0.01em;
+}
+
+.content-module {
+  .h5 {
+    font-family: $frank;
+    font-weight: $med;
+    font-size: 1.5rem;
+  }
+}
