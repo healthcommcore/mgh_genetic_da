@@ -42,6 +42,7 @@ h2 {
   letter-spacing: -0.01em;
 }
 
+// Content module
 .content-module {
   .h5 {
     font-family: $frank;
@@ -49,3 +50,10 @@ h2 {
     font-size: 1.5rem;
   }
 }
+
+.btn-da {
+  font-family: $frank;
+  font-weight: $med;
+  font-size: 1.3rem;
+}
+

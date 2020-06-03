@@ -130,6 +130,9 @@ video {
   background: $btn-bkgrd;
   border: #fff 3px solid;
   color: #fff;
+  width: 220px;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
 }
 
 .test-choices {
@@ -142,6 +145,17 @@ video {
 
 .bottom-layer {
   z-index: 10;
+}
+
+// Common
+.prev-next-buttons {
+  border-top: #fff 6px solid;
+  padding: 4.0rem 0;
+  .col-md-6.col-sm-12:nth-child(2) {
+    .btn-prev-next {
+      float: right;
+    }
+  }
 }
 
 .notes-margin {
