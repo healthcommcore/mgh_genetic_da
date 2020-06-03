@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
+import AccordionHeading from "./accordion-heading";
 import { setHTML } from "../helpers";
 
 const mapStateToProps = (state) => {
@@ -19,11 +20,10 @@ const AccordionContent = ({ accordions, cancerType }) => {
         return !(isCancerSpecific && isCancerSpecific !== cancerType) && (
           <Card key={ i }>
             <Accordion.Toggle as={ Card.Header } eventKey={ i }>
-              <h3>{ accordion.field_accordion_heading }</h3>
-              { accordion.field_accordion_subheading ? 
-                  <h4>{ accordion.field_accordion_subheading }</h4> 
-                : "" 
-              }
+              <AccordionHeading
+                heading={ accordion.field_accordion_heading }
+                subheading={ accordion.field_accordion_subheading }
+              />
             </Accordion.Toggle>
             <Accordion.Collapse eventKey={ i }>
               <Card.Body>
