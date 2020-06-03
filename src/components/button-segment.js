@@ -2,6 +2,7 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import NavButton from "./nav-button";
+import Arrow from "../images/button_segment_arrow.svg";
 import { connect } from "react-redux";
 import { setNewCurrent } from "../actions";
 import { setHTML } from "../helpers";
@@ -20,19 +21,26 @@ const ButtonSegment = ({ content, setNewCurrent }) => {
   return (
     <div className="button-segment">
       <Row>
-        <Col sm={ 8 }>
+        <Col sm={ 5 }>
           <div className="button-segment-text">
             { setHTML(content.field_text_leading_to_button.processed) }
           </div>
         </Col>
-        <Col sm={ 4 }>
-          <NavButton
-            className="btn-segment"
-            path={ path }
-            onClick={ () => setNewCurrent(path) }
-          >
-            { content.field_button_text }
-          </NavButton>
+        <Col sm={ 7 }>
+          <Row bsPrefix="row align-items-center">
+            <Col bsPrefix="col px-0">
+              <img className="img-fluid" src={ Arrow } alt="arrow" />
+            </Col>
+            <Col>
+            <NavButton
+              className="btn-segment"
+              path={ path }
+              onClick={ () => setNewCurrent(path) }
+            >
+              { content.field_button_text }
+            </NavButton>
+            </Col>
+          </Row>
         </Col>
       </Row>
     </div>

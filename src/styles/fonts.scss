@@ -15,6 +15,14 @@ body {
   line-height: 1.35em;
 }
 
+i, em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: $med;
+}
+
 // Nav
 .nav-link {
   font-family: $roboto;
@@ -62,6 +70,7 @@ h3 {
 
 // Content module
 .content-module {
+  font-weight: $reg;
   .h5 {
     font-family: $frank;
     font-weight: $med;
@@ -71,7 +80,8 @@ h3 {
 
 .btn-da {
   font-family: $frank;
-  font-weight: $med;
+  font-weight: $reg;
   font-size: 1.3rem;
+  line-height: 1.1em;
 }
 

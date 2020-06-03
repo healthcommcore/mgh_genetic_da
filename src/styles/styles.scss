@@ -147,6 +147,7 @@ video {
     }
     .icon-wrapper {
       background-color: $accordion-icon-yellow;
+      //padding: 0.6em 0.3em;
       padding-left: 0.3em;
       padding-right: 0.3em;
     }
@@ -202,8 +203,8 @@ video {
   border: #fff 3px solid;
   color: #fff;
   width: 220px;
-  padding-top: .25rem;
-  padding-bottom: .25rem;
+  padding-top: .4em;
+  padding-bottom: .4em;
 }
 
 .test-choices {
