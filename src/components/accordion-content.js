@@ -19,12 +19,11 @@ const AccordionContent = ({ accordions, cancerType }) => {
               accordion.relationships.field_cancer_type.name;
         return !(isCancerSpecific && isCancerSpecific !== cancerType) && (
           <Card key={ i }>
-            <Accordion.Toggle as={ Card.Header } eventKey={ i }>
-              <AccordionHeading
-                heading={ accordion.field_accordion_heading }
-                subheading={ accordion.field_accordion_subheading }
-              />
-            </Accordion.Toggle>
+            <AccordionHeading
+              heading={ accordion.field_accordion_heading }
+              subheading={ accordion.field_accordion_subheading }
+              eventKey={ i }
+            />
             <Accordion.Collapse eventKey={ i }>
               <Card.Body>
                 { setHTML(accordion.field_accordion_body.processed) }

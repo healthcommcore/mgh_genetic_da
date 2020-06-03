@@ -140,17 +140,22 @@ video {
       padding-right: 0.3em;
     }
     .icon {
+      text-align: center;
+      width: 32px;
       background-repeat: no-repeat;
-      background-position: left top;
       font-weight: $med;
       font-style: italic;
       font-size: 0.9rem;
       padding-top: 22px;
       margin-top: 5px;
       color: $accordion-header;
+      background-image: url("../images/more_less.svg");
     }
     .icon-open {
-      background-image: url("../images/more_less.svg");
+      background-position: left top;
+    }
+    .icon-close {
+      background-position: right top;
     }
     .heading-wrapper {
       padding-left: 0.7em;

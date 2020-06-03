@@ -23,7 +23,6 @@ const PrevNextButtons = ({ prevNext, isOrphan, advance, retreat }) => {
           :
           <>
             { keys.map( (key, i) => {
-              console.log(i);
                 if (prevNext[key] && key !== "current") {
                   return (
                     <Col md="6" sm="12" key={ i }>
