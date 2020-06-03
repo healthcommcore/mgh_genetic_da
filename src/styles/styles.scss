@@ -18,6 +18,7 @@ $teal: #4CC3C0;
 $med-yellow: #FFFCB7;
 $pale-yellow: #EDE9CA;
 $accordion-icon-yellow: #FFFCB2;
+$video-caption: #FFFEA8;
 $btn-bkgrd: #F5674D;
 
 
@@ -108,9 +109,19 @@ h3 {
   color: $h3-header;
 }
 
+// Video
 video {
+  display: block;
   width: 100% !important;
   height: auto !important;
+}
+
+.card.video-caption {
+  border-top: $video-caption 4px solid;
+  color: $teal;
+  .card-body {
+    padding: 0.9em 4.0em;
+  }
 }
 
 // Intro/Outro

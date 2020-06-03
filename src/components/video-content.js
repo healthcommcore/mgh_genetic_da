@@ -13,7 +13,7 @@ const VideoContent = ({ video, caption, placeholder }) => {
           type="video/mp4"
         />
       </video>
-      <Card>
+      <Card bsPrefix="card video-caption">
         <Card.Body>
           <Card.Text>
             { caption }
