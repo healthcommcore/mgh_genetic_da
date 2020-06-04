@@ -20,6 +20,8 @@ $pale-yellow: #EDE9CA;
 $accordion-icon-yellow: #FFFCB2;
 $video-caption: #FFFEA8;
 $btn-bkgrd: #F5674D;
+$values-inactive: #DDCACA;
+$values-bkgrd: #FFFB96;
 
 
 
@@ -183,6 +185,53 @@ video {
     padding: 1.2em 1.4em 1.6em 2.8em;
   }
 }
+
+// Values scale
+.values-scale {
+  margin-bottom: 1.4em;
+  .btn-group > .btn {
+    flex-grow: 0;
+    flex-shrink: 1;
+  }
+}
+
+.btn-group-values {
+  position: relative;
+}
+
+.btn-group-values-bkgrd {
+  border-top: $values-bkgrd 16px solid;
+  width: 103%;
+  position: absolute;
+  z-index: 1;
+  top: 30%;
+  left: -1.5%;
+}
+
+.btn-value {
+  border: $btn-bkgrd 2px solid;
+  background: #fff;
+  color: $values-inactive;
+}
+
+.btn.btn-value {
+  z-index: 50;
+  padding: 0.2rem 0.7rem;
+}
+
+.btn.btn-value:hover, 
+.btn.btn-value:active, 
+.btn.btn-value:focus {
+  z-index: 50;
+}
+
+.btn.btn-value.active {
+  z-index: 50;
+  background: $btn-bkgrd;
+  border-color: $btn-bkgrd;
+  color: #fff;
+}
+
 
 // Content module
 

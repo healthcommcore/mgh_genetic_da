@@ -61,11 +61,29 @@ h3 {
   line-height: 1.7rem;
 }
 
+// Video
 .card.video-caption {
   font-family: $roboto;
   font-weight: $lt;
   font-size: 1.0rem;
   line-height: 1.4em;
+}
+
+// Values
+.values-scale {
+  font-family: $frank;
+}
+
+.btn-value {
+  font-size: 1.1rem;
+}
+
+.btn.active.btn-value {
+  
+}
+
+.scale-label {
+  font-size: 0.9rem;
 }
 
 // Content module
