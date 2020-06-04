@@ -219,6 +219,18 @@ video {
   z-index: 10;
 }
 
+.how-to-container {
+  padding-top: 1.1em;
+ .how-to-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  div {
+    margin-bottom: 1.1em;
+  }
+}
+
 // Common
 .prev-next-buttons {
   border-top: #fff 6px solid;
