@@ -270,6 +270,40 @@ video {
   background-image: url("../images/scale_label_arrow_right.svg");
   background-position: right center;
 }
+
+.values-scale-explanation {
+  background: $lt-blue;
+  padding: 0.47em 0.8em;
+  width: 100%;
+  color: $h3-header;
+  margin: 0.5em 0;
+}
+
+.values-scale-explanation-segment-right {
+  text-align: right;
+}
+
+.answers {
+  background-image: url("../images/values_scale_explanation_arrows.svg");
+  background-repeat: no-repeat;
+  line-height: 0.95em;
+  margin-bottom: 0;
+}
+
+.answers-left {
+  padding-left: 90px;
+  background-position: left top;
+}
+
+.answers-right {
+  padding-right: 90px;
+  background-position: right bottom;
+}
+
+.explanation {
+  margin-bottom: 0;
+}
+  
 // Content module
 
 .card {

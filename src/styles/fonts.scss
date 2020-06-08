@@ -81,8 +81,21 @@ h3 {
   font-size: 1.1rem;
 }
 
-.btn.active.btn-value {
-  
+.values-scale-explanation {
+  font-size: 1.2rem;
+}
+
+.answers {
+  font-weight: $reg;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.explanation {
+  font-weight: $semi;
+  strong {
+    font-weight: $bold;
+  }
 }
 
 .scale-label {
