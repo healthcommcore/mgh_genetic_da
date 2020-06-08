@@ -4,7 +4,7 @@ const navMan = new NavManager();
 
 const initialState = {
   navPaths: {
-    current: "",
+    current: false,
     previous: false,
     next: false
   },

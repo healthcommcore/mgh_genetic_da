@@ -17,6 +17,7 @@ const NavMenu = ({ menuItems, isAdminLoggedIn }) => {
                 name={ item.title }
                 url={ urlify(item.title) }
                 key={ i }
+                visited={ item.visited }
               />
             );
           })}

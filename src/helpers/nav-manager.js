@@ -89,13 +89,12 @@ class NavManager {
   }
 
   __reloadMenu = (visited) => {
-    this.__setVisited(visited);
+    this.__setClasses(visited);
     this.__resetNavPaths();
   }
 
-  __setVisited = (visited) => {
+  __setClasses = (visited) => {
     this.menuItems[visited]["visited"] = true;
-    console.log(this.menuItems[visited]);
   }
 
   __resetNavPaths = () => {
