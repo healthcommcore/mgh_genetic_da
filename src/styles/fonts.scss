@@ -72,6 +72,9 @@ h3 {
 // Values
 .values-scale {
   font-family: $frank;
+  h3 {
+    font-weight: $med;
+  }
 }
 
 .btn-value {
@@ -83,7 +86,7 @@ h3 {
 }
 
 .scale-label {
-  font-size: 0.9rem;
+  font-size: 1.0rem;
 }
 
 // Content module

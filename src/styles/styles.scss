@@ -12,6 +12,7 @@ $dk-navy: #004367;
 $mgh-blue: #6DCBC9;
 $med-navy: #00799D;
 $lt-med-navy: #1388AC;
+$lt-blue: #ADDFFE;
 $h3-header: #0076A2;
 $accordion-header: $h3-header;
 $teal: #4CC3C0;
@@ -193,6 +194,11 @@ video {
     flex-grow: 0;
     flex-shrink: 1;
   }
+  h3 {
+    margin-top: 0.3rem;
+    margin-bottom: 1.1rem;
+    margin-left: 0.4rem;
+  }
 }
 
 .btn-group-values {
@@ -201,11 +207,11 @@ video {
 
 .btn-group-values-bkgrd {
   border-top: $values-bkgrd 16px solid;
-  width: 103%;
+  width: 102%;
   position: absolute;
   z-index: 1;
   top: 30%;
-  left: -1.5%;
+  left: -1.0%;
 }
 
 .btn-value {
@@ -232,7 +238,38 @@ video {
   color: #fff;
 }
 
+.scale-labels {
+  margin-top: 0.7em;
+}
 
+.scale-label {
+  z-index: 10;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  display: block;
+  color: $med-navy;
+}
+
+.scale-label-divider {
+  z-index: 1;
+  height: 2px;
+  background: $lt-blue;
+  width: 90%;
+}
+
+.label-left {
+  padding-left: 1.2em;
+  padding-right: 1.0em;
+  background-image: url("../images/scale_label_arrow_left.svg");
+  background-position: left center;
+}
+
+.label-right {
+  padding-left: 1.0em;
+  padding-right: 1.2em;
+  background-image: url("../images/scale_label_arrow_right.svg");
+  background-position: right center;
+}
 // Content module
 
 .card {

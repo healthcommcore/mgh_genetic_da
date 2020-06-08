@@ -41,7 +41,9 @@ const PageBody = ({ page, video, videoCaption, intro, outro, complexContent }) =
         <ContentModule content={ complexContent } />
       </ContentContainer>
       <ValuesContent list={ values } />
+      <ContentContainer>
       { exists(outro) ? <div className="intro-outro-content-margin">{ setHTML(outro.processed) } </div> : "" }
+      </ContentContainer>
     </Container>
   );
 }

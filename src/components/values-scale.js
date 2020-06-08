@@ -45,7 +45,7 @@ const ValuesScale = ({ num, heading, leftLabel, rightLabel, setValue, values }) 
             </ToggleButton>
           );
         })}
-      <div className="btn-group-values-bkgrd"></div>
+        <div className="btn-group-values-bkgrd"></div>
       </ToggleButtonGroup>
       <ValuesScaleLabels left={ leftLabel } right={ rightLabel } />
         </Card.Text>
