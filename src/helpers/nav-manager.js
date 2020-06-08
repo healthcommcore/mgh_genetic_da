@@ -12,7 +12,7 @@ class NavManager {
     const order = this.__getOrder(drupalMenu);
     const reordered = this.__reOrder(order, drupalMenu);
     //this.__setVisitedProp(reordered);
-    this.__setPathProp(reordered);
+    this.__setExtraProps(reordered);
     this.menuItems = reordered;
     this.navPaths = {
       current: this.menuItems[this.current],
@@ -40,8 +40,9 @@ class NavManager {
 
   setNewCurrent = (path) => {
     const itemIndex = this.menuItems.findIndex( (item) => item.path === path );
+    const visited = this.current;
     this.__setCurrent(itemIndex);  
-    this.__resetNavPaths();
+    this.__reloadMenu(visited);
   }
 
   __setCurrent = (num) => {
@@ -63,14 +64,16 @@ class NavManager {
   }
 
   advance = () => {
+    const visited = this.current;
     this.current++
-    this.__resetNavPaths();
+    this.__reloadMenu(visited);
     return this;
   }
 
   retreat = () => {
+    const visited = this.current;
     this.current--
-    this.__resetNavPaths();
+    this.__reloadMenu(visited);
     return this;
   }
 
@@ -83,6 +86,16 @@ class NavManager {
       return false;
     }
     return this.menuItems[++this.current];
+  }
+
+  __reloadMenu = (visited) => {
+    this.__setVisited(visited);
+    this.__resetNavPaths();
+  }
+
+  __setVisited = (visited) => {
+    this.menuItems[visited]["visited"] = true;
+    console.log(this.menuItems[visited]);
   }
 
   __resetNavPaths = () => {
@@ -123,9 +136,10 @@ class NavManager {
   }
 */
 
-  __setPathProp = (items) => {
+  __setExtraProps = (items) => {
     items.forEach( (item) => {
       item.path = "/" + urlify(item.title);
+      item.visited = false;
     });
   }
 
