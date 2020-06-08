@@ -10,6 +10,7 @@ const NavMenu = ({ menuItems, isAdminLoggedIn }) => {
   return (
     <div className="nav-bkgrd nav-margin">
       <Container>
+        <div className="progress-bar position-absolute"></div>
         <Nav justify>
           { menuItems.map( (item, i) => {
             return (

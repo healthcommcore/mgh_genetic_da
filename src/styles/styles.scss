@@ -16,6 +16,7 @@ $lt-blue: #ADDFFE;
 $h3-header: #0076A2;
 $accordion-header: $h3-header;
 $teal: #4CC3C0;
+$menu-teal: #6DCBC9;
 $med-yellow: #FFFCB7;
 $pale-yellow: #EDE9CA;
 $accordion-icon-yellow: #FFFCB2;
@@ -64,6 +65,7 @@ body {
 // Nav
 
 .nav-bkgrd {
+  padding: 0.1em 0 0.4em;
   background: #fff;
 }
 
@@ -73,6 +75,7 @@ body {
 
 .nav { 
   .nav-item {
+    z-index: 50;
     display:block;
     text-align: center;
     .nav-link {
@@ -83,10 +86,30 @@ body {
   }
 }
 
+.progress-bar {
+  border-top: $menu-teal 1px solid;
+  width: 84%;
+  margin-left: 25px;
+  margin-top: 20px;
+  z-index: 1;
+}
+
 .menu-icon {
   background-color: #fff;
   height: 26px;
-  width: 26px;
+  width: 27px;
+  background-image: url("../images/menu_icons.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.menu-icon.current, 
+.menu-icon.current.visited {
+  background-position: center right;
+}
+
+.menu-icon.visited {
+  background-position: center left;
 }
 
 // Body

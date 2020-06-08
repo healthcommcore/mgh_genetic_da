@@ -4,7 +4,7 @@ import { abbreviate } from "../helpers";
 
 const TestDecision = ({ test, children }) => {
   const resp = test.doYouWantGeneticTest;
-  const type = abbreviate(resp);
+  const type = resp && abbreviate(resp);
   let field, value, path;
   switch (type) {
     case "yes":
