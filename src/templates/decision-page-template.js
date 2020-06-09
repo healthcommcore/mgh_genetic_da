@@ -7,6 +7,7 @@ import PageBody from "../components/page-body";
 import NavContainer from "../containers/nav-container";
 import NotesArea from "../components/notes-area";
 import ButtonsContainer from "../containers/buttons-container";
+import Footer from "../components/footer";
 
 const DecisionPageTemplate = ({ data }) => {
   const node = data.nodeDecisionAidPage;
@@ -27,6 +28,7 @@ const DecisionPageTemplate = ({ data }) => {
       />
       <NotesArea />
       <ButtonsContainer isOrphan={ node.field_is_orphan_page } />
+      <Footer />
     </Layout>
   );
 }
