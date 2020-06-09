@@ -23,6 +23,12 @@ strong {
   font-weight: $med;
 }
 
+// Begin end content
+.begin-end-content {
+  font-size: 1.6rem;
+  line-height: 1.4em;
+}
+
 // Nav
 .nav-link {
   font-family: $roboto;
@@ -137,6 +143,6 @@ h3 {
 footer {
   font-family: $roboto;
   font-size: 0.8rem;
-  line-height: 1.1em;
+  line-height: 1.3em;
   font-weight: $lt;
 }

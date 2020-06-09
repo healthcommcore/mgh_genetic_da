@@ -1,9 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { initializeMenu } from "../actions";
-import { navigate, graphql, Link } from "gatsby";
-import Button from "react-bootstrap/Button";
+import { graphql } from "gatsby";
 import NavButton from "../components/nav-button";
+import LargeHeader from "../components/large-header";
+import Footer from "../components/footer";
+import ContentContainer from "../components/content-container";
 import { useDrupalMenu } from "../helpers/use-drupal-menu";
 import { setHTML } from "../helpers";
 
@@ -15,22 +17,27 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const Entrance = ({ data, initializeMenu }) => {
+const Begin = ({ data, initializeMenu }) => {
   const drupalMenu = useDrupalMenu();
   const fields = data.nodeArticle;
   return (
     <div onLoad={ initializeMenu(drupalMenu) }>
-      <h1>{ fields.title }</h1>
-      <div className="content">
-        { setHTML(fields.body.processed) }
+      <LargeHeader />
+      <ContentContainer>
+        <div className="begin-end-content">
+          { setHTML(fields.body.processed) }
+        </div>
+      </ContentContainer>
+      <div className="prev-next-buttons fixed-bottom text-center begin-button-margin">
+        <NavButton path="/welcome">Start</NavButton>
       </div>
-      <NavButton path="/welcome">Start</NavButton>
+      <Footer className="fixed-bottom" />
     </div>
   );
 }
 
 export const query = graphql`
-  query EntranceQuery {
+  query BeginQuery {
     nodeArticle(drupal_internal__nid: {eq: 20} ) {
       title
       body {
@@ -39,4 +46,4 @@ export const query = graphql`
     }
   }
 `
-export default connect(null, mapDispatchToProps)(Entrance);
+export default connect(null, mapDispatchToProps)(Begin);

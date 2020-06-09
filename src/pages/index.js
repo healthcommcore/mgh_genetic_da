@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => {
     setUser: (values) => {
       if (Object.entries(values).length === 3) {
         dispatch( setUser(values) );
-        navigate("/entrance");
+        navigate("/begin");
       }
     }
   }
