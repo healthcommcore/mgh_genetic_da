@@ -24,8 +24,8 @@ const NotesArea = ({ notes, handleChange }) => {
   return (
       <ContentContainer className="notes-margin">
         <Card>
-          <Card.Header>Notes</Card.Header>
-          <Card.Body>
+          <Card.Header bsPrefix="card-header notes-header">Notes</Card.Header>
+          <Card.Body bsPrefix="card-body notes-body">
           <Form.Control 
             as="textarea" 
             rows="7" 

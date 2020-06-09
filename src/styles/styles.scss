@@ -380,6 +380,18 @@ video {
   }
 }
 
+// Notes 
+.notes-header {
+  background-color: $accordion-icon-yellow;
+  border: none;
+  color: $med-navy;
+}
+
+.notes-margin {
+  margin-top: 3.2em;
+  margin-bottom: 4.3em;
+}
+
 // Common
 .prev-next-buttons {
   border-top: #fff 6px solid;
@@ -391,7 +403,3 @@ video {
   }
 }
 
-.notes-margin {
-  margin-top: 3.2em;
-  margin-bottom: 4.3em;
-}

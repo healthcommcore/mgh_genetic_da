@@ -119,3 +119,17 @@ h3 {
   line-height: 1.1em;
 }
 
+// Notes
+.notes-header {
+  font-family: $frank;
+}
+
+.notes-body {
+  textarea.form-control {
+    font-size: 1.3rem;
+    line-height: 1.3em;
+  }
+  textarea[placeholder] {
+    font-style: italic;
+  }
+}
