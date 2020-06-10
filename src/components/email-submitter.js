@@ -45,7 +45,7 @@ const EmailSubmitter = ({ type, data, children }) => {
   return (
     <Form>
       <Form.Row>      
-        <Col md={ 6 } xs={ 12 }>
+        <Col sm="7">
           { type === "user" ? 
             <Form.Control 
               placeholder="Enter email address"
@@ -53,7 +53,9 @@ const EmailSubmitter = ({ type, data, children }) => {
               onChange={ (e) => setEmail(e.target.value) }  
             /> : "" 
           } 
-          <Button onClick={ () => sendEmail(data, email, notes) }>{ children }</Button>
+        </Col>
+        <Col sm="5">
+          <Button className="btn btn-da rounded-pill" onClick={ () => sendEmail(data, email, notes) }>{ children }</Button>
         </Col>
       </Form.Row>      
     </Form>

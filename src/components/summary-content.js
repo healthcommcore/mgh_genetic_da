@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Card from "react-bootstrap/Card";
 import SummaryValue from "./summary-value";
 import TestDecision from "./test-decision";
 import EmailSubmitter from "./email-submitter";
@@ -42,10 +43,16 @@ const SummaryContent = ({ user }) => {
           );
         }}
       </TestDecision>
-      <p>Provide your email address to receive a copy of your responses and notes:</p>
-      <EmailSubmitter type="user" data={ user }>
-        Email summary to myself
-      </EmailSubmitter>
+      <Card bsPrefix="card my-5 summary-email-card">
+        <Card.Body>
+          <Card.Text>
+            <p>Provide your email address to receive a copy of your responses and notes:</p>
+            <EmailSubmitter type="user" data={ user }>
+              Email summary
+            </EmailSubmitter>
+          </Card.Text>
+        </Card.Body>
+      </Card>
     </>
   );
 }
