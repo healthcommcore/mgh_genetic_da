@@ -18,7 +18,7 @@ const AdminTable = ({ userid, cancerType, site, test }) => {
       <tbody>
         <tr>
           <td>User id</td>
-          <td><Form.Control type="text" value={ userid } /></td>
+          <td>{ userid }</td>
           <td></td>
         </tr>
         <tr>

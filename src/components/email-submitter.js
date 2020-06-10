@@ -44,8 +44,7 @@ const EmailSubmitter = ({ type, data, children }) => {
   const notes = (type === "user" ? data.notes : false);
   return (
     <Form>
-      <Form.Row>      
-        <Col sm="7">
+      <div className="d-flex justify-content-around">      
           { type === "user" ? 
             <Form.Control 
               placeholder="Enter email address"
@@ -53,11 +52,10 @@ const EmailSubmitter = ({ type, data, children }) => {
               onChange={ (e) => setEmail(e.target.value) }  
             /> : "" 
           } 
-        </Col>
-        <Col sm="5">
-          <Button className="btn btn-da rounded-pill" onClick={ () => sendEmail(data, email, notes) }>{ children }</Button>
-        </Col>
-      </Form.Row>      
+        <div>
+          <Button variant="da rounded-pill mx-3" onClick={ () => sendEmail(data, email, notes) }>{ children }</Button>
+        </div>
+      </div>      
     </Form>
   )
 }
