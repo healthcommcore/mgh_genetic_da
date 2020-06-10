@@ -8,23 +8,25 @@ import NavButton from "./nav-button";
 
 const NavMenu = ({ menuItems, isAdminLoggedIn }) => {
   return (
-    <div className="nav-bkgrd nav-margin">
-      <Container>
-        <div className="progress-bar position-absolute"></div>
-        <Nav justify>
-          { menuItems.map( (item, i) => {
-            return (
-              <MenuItem
-                name={ item.title }
-                url={ urlify(item.title) }
-                key={ i }
-                visited={ item.visited }
-              />
-            );
-          })}
-        </Nav>
-        { isAdminLoggedIn && <div className="text-center"><NavButton className="btn-admin mx-auto" path="/admin">Back to admin area</NavButton></div> } 
-      </Container>
+    <div className="nav-container nav-margin">
+      <div className="nav-bkgrd">
+        <Container>
+          <div className="progress-bar position-absolute"></div>
+          <Nav justify>
+            { menuItems.map( (item, i) => {
+              return (
+                <MenuItem
+                  name={ item.title }
+                  url={ urlify(item.title) }
+                  key={ i }
+                  visited={ item.visited }
+                />
+              );
+            })}
+          </Nav>
+        </Container>
+      </div>
+      { isAdminLoggedIn && <div className="text-center mt-3 mb-n3"><NavButton className="btn-admin mx-auto" path="/admin">Back to admin area</NavButton></div> } 
     </div>
   );
 }
