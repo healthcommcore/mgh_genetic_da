@@ -422,6 +422,40 @@ footer {
   }
 }
 
+// Summary
+
+.values-scale-heading {
+  .number {
+    margin-left: -1.2em;
+  }
+}
+
+.summary-value-text-container {
+  padding: 0 2.3em;
+}
+
+.summary-value-number-container {
+  width: 100%;
+  background-image: url("../images/summary_value_number_arrow.svg");
+  background-repeat: no-repeat;
+  background-position: 90% center;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.summary-value-description p {
+  margin-bottom: 0;
+}
+
+.summary-value-number {
+  text-align: center;
+  background-color: $btn-bkgrd;
+  width: 34px;
+  height: 34px;
+  color: #fff;
+  padding-top: 0;
+}
+
 // Admin
 .modal-backdrop.show {
   opacity: 0.85;

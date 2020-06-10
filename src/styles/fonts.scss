@@ -78,9 +78,11 @@ h3 {
 // Values
 .values-scale {
   font-family: $frank;
-  h3 {
-    font-weight: $med;
-  }
+}
+
+h3.values-scale-heading {
+  font-weight: $med;
+  font-family: $frank;
 }
 
 .btn-value {
@@ -125,6 +127,20 @@ h3 {
   line-height: 1.1em;
 }
 
+// Summary
+.summary-value-number {
+  line-height: 1.5em;
+  font-family: $frank;
+  font-size: 1.4rem;
+}
+
+.summary-value-description {
+  font-family: $freight;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.2em;
+}
+
 // Notes
 .notes-header {
   font-family: $frank;
@@ -140,7 +156,7 @@ h3 {
   }
 }
 
-footer {
+  footer {
   font-family: $roboto;
   font-size: 0.8rem;
   line-height: 1.3em;

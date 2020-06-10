@@ -3,17 +3,17 @@ import Card from "react-bootstrap/Card";
 
 const SummaryValue = ({ num, heading, leftLabel, rightLabel, value }) => {
   return (
-    <Card>
+    <Card bsPrefix="card mb-4">
       <Card.Body>
-        <Card.Title>{ num + ". " + heading }</Card.Title>
         <Card.Text>
-          <div className="d-flex">
-            <div className="p-2 flex-fill">
-              <p>On a scale of 1 ({ leftLabel }) to 7 ({ rightLabel }) you chose:</p>
+          <div className="summary-value-text-container">
+            <h3 className="values-scale-heading"><span className="number">{ num }</span>{ ". " + heading }</h3>
+            <div className="summary-value-description">
+              <p>On a scale of <strong>1 ({ leftLabel })</strong> to <strong>7 ({ rightLabel }), </strong> you chose:</p>
             </div>
-            <div className="p-2 flex-fill">
-              <p>{ value }</p>
-            </div>
+          </div>
+          <div className="summary-value-number-container d-flex float-right justify-content-end">
+            <span className="rounded-circle summary-value-number">{ value }</span>
           </div>
         </Card.Text>
       </Card.Body>
