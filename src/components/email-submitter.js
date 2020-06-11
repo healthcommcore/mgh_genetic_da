@@ -53,7 +53,7 @@ const EmailSubmitter = ({ type, data, children }) => {
             /> : "" 
           } 
         <div>
-          <Button variant="da rounded-pill mx-3" onClick={ () => sendEmail(data, email, notes) }>{ children }</Button>
+          <Button variant="da rounded-pill" onClick={ () => sendEmail(data, email, notes) }>{ children }</Button>
         </div>
       </div>      
     </Form>

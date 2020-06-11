@@ -71,6 +71,12 @@ const adminLogin = (submitted) => {
   }
 }
 
+const logout = () => {
+  return {
+    type: `LOGOUT`
+  }
+}
+
 
 export { 
   setUser, 
@@ -81,5 +87,6 @@ export {
   advance, 
   retreat, 
   setNewCurrent, 
-  adminLogin 
+  adminLogin,
+  logout
 };

@@ -46,6 +46,9 @@ const navigation = (state = initialState, action) => {
         {}, state, 
         { navPaths: newNavPaths }
       );
+    case `LOGOUT`:
+      navMan.reset();
+      return initialState;
     default:
       return state;
   }

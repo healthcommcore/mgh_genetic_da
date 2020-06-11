@@ -2,6 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Fade from "react-bootstrap/Fade";
+import Button from "react-bootstrap/Button";
 import AdminModal from "../components/admin-modal";
 import AdminTable from "../components/admin-table";
 import ContentContainer from "../components/content-container";
@@ -9,7 +10,8 @@ import SummaryValue from "../components/summary-value";
 import EmailSubmitter from "../components/email-submitter";
 import Footer from "../components/footer";
 import { connect } from "react-redux";
-import { adminLogin } from "../actions";
+import { adminLogin, logout } from "../actions";
+import { navigate } from "gatsby";
 
 const mapStateToProps = (state) => {
   return {
@@ -24,13 +26,17 @@ const mapDispatchToProps = (dispatch) => {
     handleSubmit: (e, value) => {
       e.preventDefault();
       dispatch( adminLogin(value));
+    },
+    handleLogout: () => {
+      dispatch( logout());
+      navigate("/");
     }
   }
 }
 
 
 
-const Admin = ({ isLoggedIn, showError, user, handleSubmit }) => {
+const Admin = ({ isLoggedIn, showError, user, handleSubmit, handleLogout }) => {
   return (
     <>
     <Container bsPrefix="container mt-5">
@@ -71,17 +77,18 @@ const Admin = ({ isLoggedIn, showError, user, handleSubmit }) => {
         })}
         </ContentContainer>
         <div className="text-center my-5 pb-4 pt-3">
-        <EmailSubmitter 
-          type="admin"
-          data={ user }
-        >
-          Submit user data
-        </EmailSubmitter>
+          <EmailSubmitter 
+            type="admin"
+            data={ user }
+          >
+            Submit user data
+          </EmailSubmitter>
+          <Button variant="da my-4 rounded-pill" onClick={ handleLogout }>Logout</Button>
         </div>
       </>
       </Fade>
     </Container>
-    <Footer className="mt-5" />
+    <Footer />
     </>
   );
 }

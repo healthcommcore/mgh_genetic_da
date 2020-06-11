@@ -5,14 +5,14 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { PersistGate } from "redux-persist/integration/react";
 
-import reducer from "./src/reducers";
+import rootReducer from "./src/reducers";
 
 const persistConfig = {
   key: 'root',
   storage
 };
 
-const persistedReducer = persistReducer(persistConfig, reducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 let store = createStore(
   persistedReducer,

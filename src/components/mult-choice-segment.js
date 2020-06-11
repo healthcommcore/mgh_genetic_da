@@ -21,7 +21,6 @@ const mapDispatchToProps = (dispatch) => {
 const MultChoiceSegment = ({ content, savedInput, setTestInput }) => {
   const type = content.field_can_choose_multiple ? "checkbox" : "radio";
   const name = urlify(content.relationships.field_relevance.name);
-  //console.log(savedInput[toCamelCase(name)]);
   return (
     <Form>
       { content.field_intro_to_options && <p>{ content.field_intro_to_options }</p> }
