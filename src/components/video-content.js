@@ -5,6 +5,20 @@ import { exists } from "../helpers";
 
 const VideoContent = ({ video, caption, placeholder }) => {
   const SITE_URL = "http://api.geneticda.hccstaging.com";
+  if (placeholder && !video) {
+    return (
+      <LeftMarginContainer>
+        <img className="img-fluid" src={ SITE_URL + placeholder.uri.url } />
+        <Card bsPrefix="card video-caption">
+          <Card.Body>
+            <Card.Text>
+              { caption }
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </LeftMarginContainer>
+    );
+  }
   return video && (
     <LeftMarginContainer>
       <video controls poster={ SITE_URL + placeholder.uri.url }>
