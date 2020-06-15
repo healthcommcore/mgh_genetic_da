@@ -120,6 +120,20 @@ h3.values-scale-heading {
   }
 }
 
+.table.comparison-table {
+  th {
+    font-family: $frank;
+    font-weight: $reg;
+    font-size: 1.2rem;
+    line-height: 1.1em;
+  }
+  td {
+    font-size: 1.3rem;
+    font-weight: $reg;
+    line-height: 1.2em;
+  }
+}
+
 .btn-da {
   font-family: $frank;
   font-weight: $reg;

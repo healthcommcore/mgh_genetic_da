@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-const AccordionContent = ({ accordions, cancerType }) => {
+const AccordionContent = ({ accordions, className, cancerType }) => {
   return accordions && (
     <Accordion>
       { accordions.map( (accordion, i) => {
@@ -25,7 +25,7 @@ const AccordionContent = ({ accordions, cancerType }) => {
               eventKey={ i }
             />
             <Accordion.Collapse eventKey={ i }>
-              <Card.Body>
+              <Card.Body bsPrefix={ "card-body" + ( className ? " " + className : "") }>
                 { setHTML(accordion.field_accordion_body.processed) }
               </Card.Body>
             </Accordion.Collapse>

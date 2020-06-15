@@ -28,7 +28,7 @@ const PageBody = ({ page, video, videoCaption, intro, outro, complexContent }) =
             <>
               <AccordionContent accordions={ accordions.slice(0, -1) } />
               <h2>Compare test options</h2>
-              <AccordionContent accordions={ accordions.slice(-1) } />
+              <AccordionContent className="no-padding" accordions={ accordions.slice(-1) } />
             </>
           :
             <AccordionContent accordions={ accordions } />

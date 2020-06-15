@@ -9,6 +9,7 @@ $orange: #EA7763;
 
 $bkgrd: #DEFBFF;
 $dk-navy: #004367;
+$comparison-table-head: #265FA2;
 $mgh-blue: #6DCBC9;
 $med-navy: #00799D;
 $lt-med-navy: #1388AC;
@@ -20,6 +21,7 @@ $menu-teal: #6DCBC9;
 $med-yellow: #FFFCB7;
 $pale-yellow: #EDE9CA;
 $accordion-icon-yellow: #FFFCB2;
+$comparison-table-stripe: #F9FAD2;
 $video-caption: #FFFEA8;
 $btn-bkgrd: #F5674D;
 $values-inactive: #DDCACA;
@@ -392,6 +394,42 @@ video {
   div {
     margin-bottom: 1.1em;
   }
+}
+
+.card-body.no-padding {
+  padding: 0;
+}
+
+.table.comparison-table {
+  margin-bottom: 0;
+  thead th, th, td {
+    border-top: none;
+    border-bottom: none;
+    vertical-align: middle;
+  }
+  thead tr {
+    background-color: $lt-blue;
+  }
+  thead th {
+    color: $comparison-table-head;
+    text-align: center;
+  }
+  td {
+    border-right: $lt-blue 1px solid;
+    color: $dk-navy;
+    text-align: center;
+  }
+  td:first-child {
+    text-align: left;
+    padding: 1.0em 1.2em;
+  }
+  td:last-child {
+    border-right: none;
+  }
+}
+
+.table-striped.comparison-table tbody tr:nth-of-type(2n+1){
+  background-color: $comparison-table-stripe;
 }
 
 // Notes 
