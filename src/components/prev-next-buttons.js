@@ -7,7 +7,6 @@ import { ucFirst, urlify } from "../helpers";
 
 const PrevNextButtons = ({ prevNext, isOrphan, advance, retreat }) => {
   const keys = Object.keys(prevNext);
-  const count = 1;
   const link = {
     previous: retreat,
     next: advance
@@ -28,7 +27,7 @@ const PrevNextButtons = ({ prevNext, isOrphan, advance, retreat }) => {
                         path={ prevNext[key].path }
                         onClick={ link[key] }
                       >
-                        { ucFirst(key) }
+                        { prevNext[key].title === "End" ? "Finish" : ucFirst(key) }
                       </NavButton>
                   );
                 }

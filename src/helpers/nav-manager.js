@@ -19,7 +19,7 @@ class NavManager {
       previous: this.menuItems[this.current - 1] || false,
       next: this.menuItems[this.current + 1] || false
     };
-    //this.menuItems.unshift(this.__setStart());
+    this.menuItems.push(this.__setEnd());
   }
 
   getCurrentMarker = () => {
@@ -127,14 +127,6 @@ class NavManager {
     return reordered;
   }
 
-/*
-  __setVisitedProp = (items) => {
-    items.forEach( (item) => {
-      item.visited = false;
-    });
-  }
-*/
-
   __setExtraProps = (items) => {
     items.forEach( (item) => {
       item.path = "/" + urlify(item.title);
@@ -142,6 +134,7 @@ class NavManager {
     });
   }
 
+/*
   __setStart = () => {
     return {
       title: "Entrance",
@@ -149,13 +142,16 @@ class NavManager {
       link: { uri: ""},
       visited: true
     }
-      /*
-      {
-        title: "Finish",
-        weight: 999,
-        link: { uri: ""}
-      }
-      */
+  }
+*/
+
+  __setEnd = () => {
+    return {
+      title: "End",
+      weight: 999,
+      path: "/end",
+      visited: false
+    }
   }
 }
 

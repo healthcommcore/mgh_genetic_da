@@ -14,14 +14,16 @@ const NavMenu = ({ menuItems, isAdminLoggedIn }) => {
           <div className="progress-bar position-absolute"></div>
           <Nav justify>
             { menuItems.map( (item, i) => {
-              return (
-                <MenuItem
-                  name={ item.title }
-                  url={ urlify(item.title) }
-                  key={ i }
-                  visited={ item.visited }
-                />
-              );
+              if (item.title !== "End") {
+                return (
+                  <MenuItem
+                    name={ item.title }
+                    url={ urlify(item.title) }
+                    key={ i }
+                    visited={ item.visited }
+                  />
+                );
+              }
             })}
           </Nav>
         </Container>
