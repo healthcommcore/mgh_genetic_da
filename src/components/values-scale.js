@@ -29,7 +29,7 @@ const ValuesScale = ({ num, heading, leftLabel, rightLabel, setValue, values }) 
     <div className="values-scale">
     <Card>
       <Card.Body>
-        <Card.Text>
+        <Card.Text as="div">
       <h3 className="values-scale-heading">{ num + 1 }. { heading }</h3>
       <ToggleButtonGroup type="radio" value={ values[num] && Number(values[num].value) } name={ name } className="d-flex justify-content-between btn-group-values">
         { SCALE_NUM.map( (sn, i) => {

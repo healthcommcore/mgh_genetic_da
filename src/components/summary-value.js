@@ -5,7 +5,7 @@ const SummaryValue = ({ num, heading, leftLabel, rightLabel, value }) => {
   return (
     <Card bsPrefix="card mb-4">
       <Card.Body>
-        <Card.Text>
+        <Card.Text as="div">
           <div className="summary-value-text-container">
             <h3 className="values-scale-heading"><span className="number">{ num }</span>{ ". " + heading }</h3>
             <div className="summary-value-description">

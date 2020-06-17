@@ -17,6 +17,7 @@ const SummaryContent = ({ user }) => {
   return (
     <>
       <h2>What's important to you?</h2>
+      { values.length === 0 ? <p>No responses recorded</p> : "" }
       { values.map( (value, i) => {
         return value && (
           <SummaryValue

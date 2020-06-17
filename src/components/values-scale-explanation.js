@@ -10,6 +10,7 @@ const ValuesScaleExplanation = ({ classes="" }) => {
         return (
           <ValuesScaleExplanationSegment
             direction={ direction }
+            key={ i }
           />
         )
       })}
