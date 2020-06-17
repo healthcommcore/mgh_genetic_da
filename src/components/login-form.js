@@ -27,7 +27,6 @@ let LoginForm = ({ cancers, sites, handleSubmit }) => {
             <Form.Control 
               name="useridconfirm" 
               type="text"
-              component={ FieldInput } 
               onChange={ (e) => confirmMatch(e.target.value === userid) }
               onFocus={ () => showAlert(true) }
             />

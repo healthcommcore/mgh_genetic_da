@@ -31,7 +31,7 @@ const MenuItem = ({ name, url, visited, current, setNewCurrent }) => {
       <Nav.Link 
         bsPrefix="nav-link d-inline-block"
         as={ Link } 
-        to={ path } 
+        to={ "/" + path } 
         nodeid={ nodeId }
         onClick={ () => setNewCurrent("/" + path) }
     >
