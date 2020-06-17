@@ -10,17 +10,17 @@ const ContentModuleSegment = ({ segment }) => {
   const components = segment.relationships;
   return (
     <>
-      { segment.field_content && <Card.Text>{ setHTML(segment.field_content.processed) }</Card.Text> }
+      { segment.field_content && <Card.Text as="div">{ setHTML(segment.field_content.processed) }</Card.Text> }
       { Object.keys(components).map( (type, i) => {
         switch(type) {
           case MULT_CHOICE:
             const multChoice = getContent(components, MULT_CHOICE, "field_option_name");
-            return multChoice && <MultChoiceSegment content={ multChoice } />;
+            return multChoice && <MultChoiceSegment key={ i } content={ multChoice } />;
           case BUTTON:
             const buttons = getContent(components, BUTTON, "field_button_text");
             return buttons && (
-              buttons.map( (button, i) => {
-                return <ButtonSegment key={ i } content={ button } />;
+              buttons.map( (button, j) => {
+                return <ButtonSegment key={ j } content={ button } />;
               }));
           default:
             return <></>;

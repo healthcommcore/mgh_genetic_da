@@ -62,7 +62,6 @@ const EmailSubmitter = ({ type, data, children }) => {
 
 EmailSubmitter.propTypes = {
   type: PropTypes.string,
-  userid: PropTypes.string.isRequired,
   data: PropTypes.object.isRequired,
   email: PropTypes.string
 }

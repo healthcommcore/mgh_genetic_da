@@ -23,6 +23,7 @@ const PrevNextButtons = ({ prevNext, isOrphan, advance, retreat }) => {
                 if (prevNext[key] && key !== "current") {
                   return (
                       <NavButton 
+                        key={ i }
                         className="btn-prev-next"
                         path={ prevNext[key].path }
                         onClick={ link[key] }

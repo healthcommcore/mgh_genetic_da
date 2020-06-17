@@ -45,7 +45,7 @@ const SummaryContent = ({ user }) => {
       </TestDecision>
       <Card bsPrefix="card my-5 summary-email-card">
         <Card.Body>
-          <Card.Text>
+          <Card.Text as="div">
             <p>Provide your email address to receive a copy of your responses and notes:</p>
             <EmailSubmitter type="user" data={ user }>
               Email summary
