@@ -28,10 +28,10 @@ const ButtonSegment = ({ content, setNewCurrent }) => {
         </Col>
         <Col sm={ 7 }>
           <Row bsPrefix="row align-items-center">
-            <Col bsPrefix="col px-0">
+            <div className="flex-fill">
               <img className="img-fluid" src={ Arrow } alt="arrow" />
-            </Col>
-            <Col>
+            </div>
+            <div className="flex-fill">
             <NavButton
               className="btn-segment"
               path={ path }
@@ -39,7 +39,7 @@ const ButtonSegment = ({ content, setNewCurrent }) => {
             >
               { content.field_button_text }
             </NavButton>
-            </Col>
+            </div>
           </Row>
         </Col>
       </Row>
