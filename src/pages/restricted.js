@@ -1,26 +1,10 @@
 import React from "react";
-import { connect } from "react-redux";
-import { setNewCurrent } from "../actions";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import NavButton from "../components/nav-button";
-
-const mapStateToProps = (state) => {
-  return {
-    current: state.navigation.navPaths.current
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setNewCurrent: (path) => {
-      return dispatch( setNewCurrent(path) );
-    }
-  }
-}
+import MenuPathUpdater from "../containers/menu-path-updater";
 
 const Restricted = ({ current, setNewCurrent }) => {
-  console.log(current);
   return (
     <Container bsPrefix="container mt-5">
       <div className="blue-bkgrd mb-5">
@@ -38,4 +22,4 @@ const Restricted = ({ current, setNewCurrent }) => {
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Restricted);
+export default MenuPathUpdater(Restricted);

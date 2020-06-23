@@ -2,23 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { urlify, getNodeId } from "../helpers";
-import { connect } from "react-redux";
-import { setNewCurrent } from "../actions";
+import MenuPathUpdater from "../containers/menu-path-updater";
 import Nav from "react-bootstrap/Nav";
-
-const mapStateToProps = (state) => {
-  return {
-    current: state.navigation.navPaths.current
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setNewCurrent: (path) => {
-      return dispatch( setNewCurrent(path) );
-    }
-  }
-}
 
 const MenuItem = ({ name, url, visited, current, setNewCurrent }) => {
   const path = urlify(name);
@@ -52,4 +37,4 @@ MenuItem.defaultProps = {
   url: "#"
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MenuItem);
+export default MenuPathUpdater(MenuItem);

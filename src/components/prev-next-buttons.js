@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import { Link } from "gatsby";
 import { ucFirst, urlify } from "../helpers";
 
-const PrevNextButtons = ({ prevNext, isOrphan, advance, retreat }) => {
+const PrevNextButtons = ({ prevNext, isOrphan, advance, retreat, setNewCurrent }) => {
   const keys = Object.keys(prevNext);
   const link = {
     previous: retreat,
@@ -16,7 +16,10 @@ const PrevNextButtons = ({ prevNext, isOrphan, advance, retreat }) => {
       <Container>
         <div className="buttons-container d-flex justify-content-around flex-wrap">
         { isOrphan ?
-          <NavButton path={ prevNext.current.path }>{ "Back to " + prevNext.current.title }</NavButton>
+          <NavButton 
+            onClick={ () => setNewCurrent(prevNext.current.path) }
+            path={ prevNext.current.path }
+          >{ "Back to " + prevNext.current.title }</NavButton>
           :
           <>
             { keys.map( (key, i) => {
