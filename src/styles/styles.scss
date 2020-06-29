@@ -400,6 +400,17 @@ video {
   }
 }
 
+.form-check {
+  margin-bottom: 0.5rem;
+  input {
+    width: 22px;
+    height: 22px;
+  }
+  label {
+    margin-left: 0.6rem;
+  }
+}
+
 .card-body.no-padding {
   padding: 0;
 }
