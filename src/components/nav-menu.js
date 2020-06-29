@@ -8,7 +8,7 @@ import NavButton from "./nav-button";
 
 const NavMenu = ({ menuItems, isAdminLoggedIn }) => {
   return (
-    <div className="nav-container nav-margin">
+    <div className="nav-container nav-margin sticky-top">
       <div className="nav-bkgrd">
         <Container>
           <div className="progress-bar position-absolute"></div>
