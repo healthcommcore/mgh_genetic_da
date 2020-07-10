@@ -19,7 +19,7 @@ const PrevNextButtons = ({ prevNext, isOrphan, advance, retreat, setNewCurrent }
           <NavButton 
             onClick={ () => setNewCurrent(prevNext.current.path) }
             path={ prevNext.current.path }
-          >{ "Back to " + prevNext.current.title }</NavButton>
+          >{ 'Back to "' + ucFirst(prevNext.current.title) + '"' }</NavButton>
           :
           <>
             { keys.map( (key, i) => {

@@ -20,7 +20,7 @@ let LoginForm = ({ cancers, sites, handleSubmit }) => {
             <Field name="userid" component={ FieldInput } onChange={ (e) => updateId(e.target.value) }/>
           </Form.Group>
           <Alert variant={ match ? "success" : "danger" } show={ show }>
-            The two patient ids { !match && "do not" } match!
+            IDs { !match && "do not" } match
           </Alert>
           <Form.Group controlId="patientIDConfirm">
             <Form.Label>Re-enter patient ID</Form.Label>
