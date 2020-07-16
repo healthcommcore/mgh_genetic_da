@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const NotesArea = ({ notes, handleChange }) => {
-  const placeholder = "Write your questions or comments here. You will be able to review them later"
+  const placeholder = "Write your questions or comments here. You will be able to review them later."
   return (
       <ContentContainer className="notes-margin">
         <Card>

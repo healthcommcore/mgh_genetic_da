@@ -512,6 +512,25 @@ footer {
 .summary-email-card {
 }
 
+// End
+.end-screen-title {
+  background-color: #fff;
+  padding: 20px 40px;
+  margin: 0 -40px 30px -40px;
+  h2 {
+    margin: 0;
+    font-size: 2.1rem;
+  }
+}
+
+.end-screen-footer {
+  border-top: $dk-navy 1px solid;
+  padding: 30px 40px 0;
+  margin: 80px -40px 0 -40px;
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+}
+
 // Admin
 .modal-backdrop.show {
   opacity: 0.85;
