@@ -12,7 +12,8 @@ class EmailSubmitter extends Component {
     super(props);
     this.state = {
       email: false,
-      confirm: false
+      confirm: false,
+      message: ""
     };
     this.sendEmail = this.sendEmail.bind(this);
     this.setEmail = this.setEmail.bind(this);
@@ -20,6 +21,13 @@ class EmailSubmitter extends Component {
   }
 
   sendEmail = (data, email = false, notes = false) => {
+    if (this.props.type === "user" && !email) {
+      this.setState({ 
+        message: "You need to enter your email address",
+        confirm: true
+      });
+      return;
+    }
     const payload = {
       email,
       userBasic: {
@@ -47,10 +55,17 @@ class EmailSubmitter extends Component {
       })
       .then( (response) => {
         console.log(response);
-        this.setState({ confirm: true });
+        this.setState({ 
+          confirm: true,
+          message: "Your email was sent"
+        });
       })
       .catch( (err) => {
         console.error("Error:", err);
+        this.setState({ 
+          confirm: true,
+          message: "There was a problem and your email could not be sent"
+        });
       });
   }
 
@@ -65,8 +80,8 @@ class EmailSubmitter extends Component {
   render() {
     return (
       <>
-        <Modal show={ this.confirm } onHide={ this.handleClose }>
-          <Modal.Body>Your email has been successfully sent</Modal.Body>
+        <Modal show={ this.state.confirm } onHide={ this.handleClose }>
+          <Modal.Body>{ this.state.message }</Modal.Body>
           <Modal.Footer>
            <Button variant="da rounded-pill" onClick={ this.handleClose }>Ok</Button> 
           </Modal.Footer>
