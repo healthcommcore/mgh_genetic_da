@@ -233,6 +233,9 @@ video {
     border-top: $accordion-icon-yellow 6px solid;
     color: $dk-navy;
     padding: 1.2em 1.4em 1.6em 2.8em;
+    img {
+      margin-top: 0.2em;
+    }
   }
 }
 
