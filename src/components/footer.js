@@ -7,7 +7,7 @@ const Footer = ({ className }) => {
   return (
     <footer className={ "d-flex justify-content-between" + classes }>
       <img src={ MghLogo } alt="MGH logo" />
-      <p>&copy;2020 Massachusetts General Hospital<br />
+      <p>&copy;2020 Massachusetts General Hospital Cancer Center<br />
       <Link to="/admin">Admin</Link></p>
     </footer>
   );
