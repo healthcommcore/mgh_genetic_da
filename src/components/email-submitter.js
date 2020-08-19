@@ -30,6 +30,7 @@ class EmailSubmitter extends Component {
     }
     const payload = {
       email,
+      type: this.props.type,
       userBasic: {
         id: data.userid,
         cancerType: data.cancerType,
@@ -38,13 +39,14 @@ class EmailSubmitter extends Component {
       userTest : {
         decision: data.test.doYouWantGeneticTest,
         test: data.test.testTypes || "no test selected",
+        notSure: data.test.notSureWhichTest && data.test.notSureWhichTest.length > 0 && data.test.notSureWhichTest.join(", "),
         nextSteps: data.test.notReadyToDecide && data.test.notReadyToDecide.length > 0 && data.test.notReadyToDecide.join(", ")
       },
       userValues: data.values,
       notes
     };
     const json = JSON.stringify(payload);
-    fetch("http://api.geneticda.hccstaging.com/sendmail.php",
+    fetch("http://api.geneticda.hccstaging.com/email/sendmail.php",
       {
         method: "post",
         headers: { 
@@ -96,7 +98,7 @@ class EmailSubmitter extends Component {
                 /> : "" 
               } 
             <div>
-              <Button variant="da rounded-pill" onClick={ () => this.sendEmail(this.props.data, this.props.email, this.props.notes) }>{ this.props.children }</Button>
+              <Button variant="da rounded-pill" onClick={ () => this.sendEmail(this.props.data, this.state.email) }>{ this.props.children }</Button>
             </div>
           </div>      
         </Form>
