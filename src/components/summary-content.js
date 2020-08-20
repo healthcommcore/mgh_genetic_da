@@ -48,7 +48,7 @@ const SummaryContent = ({ user }) => {
         <Card.Body>
           <Card.Text as="div">
             <p>Provide your email address to receive a copy of your responses and notes:</p>
-            <EmailSubmitter type="user" data={ user }>
+            <EmailSubmitter type="user" data={ user } notes={ user.notes }>
               Email summary
             </EmailSubmitter>
           </Card.Text>

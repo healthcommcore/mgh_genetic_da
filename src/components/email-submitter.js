@@ -98,7 +98,7 @@ class EmailSubmitter extends Component {
                 /> : "" 
               } 
             <div>
-              <Button variant="da rounded-pill" onClick={ () => this.sendEmail(this.props.data, this.state.email) }>{ this.props.children }</Button>
+              <Button variant="da rounded-pill" onClick={ () => this.sendEmail(this.props.data, this.state.email, this.props.notes) }>{ this.props.children }</Button>
             </div>
           </div>      
         </Form>
