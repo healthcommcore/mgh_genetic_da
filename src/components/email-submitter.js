@@ -38,7 +38,7 @@ class EmailSubmitter extends Component {
       },
       userTest : {
         decision: data.test.doYouWantGeneticTest,
-        test: data.test.testTypes || "no test selected",
+        test: data.test.testTypes || false,
         notSure: data.test.notSureWhichTest && data.test.notSureWhichTest.length > 0 && data.test.notSureWhichTest.join(", "),
         nextSteps: data.test.notReadyToDecide && data.test.notReadyToDecide.length > 0 && data.test.notReadyToDecide.join(", ")
       },
