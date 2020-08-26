@@ -77,20 +77,37 @@ const handleVisibility = (stateCopy, response) => {
 }
 
 const applyTestLogic = (stateCopy, response) => {
+  const forceYes = "Yes, I want genetic testing";
   switch(response) {
     case "no":
+      stateCopy.test.testTypes = null;
       stateCopy.test.notSureWhichTest = [];
     case "no":
     case "yes":
       stateCopy.test.notReadyToDecide = [];
-    case "think":
-    case "talk":
-    case "no":
-      stateCopy.test.testTypes = null;
       break;
     case "test":
+      stateCopy.test.doYouWantGeneticTest = forceYes;
       stateCopy.test.notSureWhichTest = [];
       break;
+    case "think":
+      stateCopy.test.testTypes = null;
+      stateCopy.test.doYouWantGeneticTest = forceYes;
+      stateCopy.test.notReadyToDecide = [];
+      break;
+    case "talk":
+      if (stateCopy.test.notReadyToDecide.length > 0) {
+        stateCopy.test.testTypes = null;
+        stateCopy.test.notSureWhichTest = [];
+      }
+      if (stateCopy.test.notSureWhichTest.length > 0) {
+        stateCopy.test.testTypes = null;
+        stateCopy.test.doYouWantGeneticTest = forceYes;
+        stateCopy.test.notReadyToDecide = [];
+      }
+      break;
+    default:
+      return;
   }
 }
   
