@@ -80,6 +80,7 @@ const applyTestLogic = (stateCopy, response) => {
   const forceYes = "Yes, I want genetic testing";
   switch(response) {
     case "no":
+    case "im":
       stateCopy.test.testTypes = null;
       stateCopy.test.notSureWhichTest = [];
     case "no":
@@ -88,6 +89,7 @@ const applyTestLogic = (stateCopy, response) => {
       break;
     case "test":
       stateCopy.test.doYouWantGeneticTest = forceYes;
+      stateCopy.test.notReadyToDecide = [];
       stateCopy.test.notSureWhichTest = [];
       break;
     case "think":
