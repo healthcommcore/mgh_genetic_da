@@ -4,7 +4,7 @@ import LeftMarginContainer from "./left-margin-container";
 import { exists } from "../helpers";
 
 const VideoContent = ({ video, caption, placeholder }) => {
-  const SITE_URL = "http://api.mghcancergeneticsda.com";
+  const SITE_URL = "https://api.mghcancergeneticsda.com";
   if (placeholder && !video) {
     return (
       <LeftMarginContainer>
