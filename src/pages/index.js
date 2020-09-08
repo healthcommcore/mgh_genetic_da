@@ -13,12 +13,14 @@ import { reduxForm } from "redux-form";
 import LoginForm from "../components/login-form";
 import { setUser } from "../actions";
 import { navigate, graphql } from "gatsby";
+import { trackUser } from "gatsby-plugin-google-analytics";
 
 const mapDispatchToProps = (dispatch) => {
   return {
     setUser: (values) => {
       if (Object.entries(values).length === 3) {
         dispatch( setUser(values) );
+        trackUser(values.userid);
         navigate("/begin");
       }
     }

@@ -3,7 +3,7 @@ const initialState = {
   showError: false
 }
 
-const PASSWORD = "DA@dm1n";
+const PASSWORD = "da@dmin";
 
 const admin = (state = initialState, action) => {
   let stateCopy = Object.assign({}, state);
