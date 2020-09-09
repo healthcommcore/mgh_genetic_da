@@ -12,7 +12,6 @@ const AccordionHeading = ({ heading, subheading, eventKey, callback }) => {
   const isCurrentEventKey = currentEventKey === eventKey;
   const iconDisplay = getIconDisplay(isCurrentEventKey);
 
-
   return (
     <Card.Header onClick={ decoratedOnClick }>
       <div className="d-flex accordion-header-content">

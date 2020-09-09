@@ -22,9 +22,9 @@ const AccordionContent = ({ accordions, className, cancerType }) => {
             <AccordionHeading
               heading={ accordion.field_accordion_heading }
               subheading={ accordion.field_accordion_subheading }
-              eventKey={ i }
+              eventKey={ i + 1 }
             />
-            <Accordion.Collapse eventKey={ i }>
+            <Accordion.Collapse eventKey={ i + 1 }>
               <Card.Body bsPrefix={ "card-body" + ( className ? " " + className : "") }>
                 { setHTML(accordion.field_accordion_body.processed) }
               </Card.Body>
