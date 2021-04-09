@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Header from "../components/header";
+import GoogleTranslate from "../components/google-translate";
 import Layout from "../components/layout";
 import PageTitle from "../components/page-title";
 import PageBody from "../components/page-body";
@@ -15,6 +16,7 @@ const DecisionPageTemplate = ({ data }) => {
     <Layout className="decision-page">
       <Header />
       <NavContainer />
+			<GoogleTranslate />
       <PageTitle>
         { node.title }
       </PageTitle>
