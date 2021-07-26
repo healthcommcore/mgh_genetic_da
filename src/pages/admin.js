@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Fade from "react-bootstrap/Fade";
 import Button from "react-bootstrap/Button";
 import AdminModal from "../components/admin-modal";
+import GoogleTranslate from "../components/google-translate";
 import AdminTable from "../components/admin-table";
 import ContentContainer from "../components/content-container";
 import SummaryValue from "../components/summary-value";
