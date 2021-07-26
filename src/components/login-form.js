@@ -48,7 +48,12 @@ let LoginForm = ({ cancers, sites, handleSubmit }) => {
               <option>--Select site--</option>
               { sites.map( (site, i) => {
                 return (
-                  <option key={ i }>{ site.node.name }</option>
+                  <option 
+                    key={ i }
+                    value={ site.node.path.alias.substr(1) } 
+                  >
+                  { site.node.name }
+                  </option>
                 )
               })}
             </Field>

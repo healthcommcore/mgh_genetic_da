@@ -30,6 +30,7 @@ class EmailSubmitter extends Component {
     }
     const payload = {
       email,
+      site: data.site,
       type: this.props.type,
       userBasic: {
         id: data.userid,
@@ -98,7 +99,7 @@ class EmailSubmitter extends Component {
                 /> : "" 
               } 
             <div>
-              <Button variant="da rounded-pill" onClick={ () => this.sendEmail(this.props.data, this.state.email, this.props.notes) }>{ this.props.children }</Button>
+              <Button variant="da rounded-pill" onClick={ () => this.sendEmail(this.props.site, this.props.data, this.state.email, this.props.notes) }>{ this.props.children }</Button>
             </div>
           </div>      
         </Form>
