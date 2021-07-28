@@ -21,8 +21,8 @@ const mapDispatchToProps = (dispatch) => {
       console.log(values);
       if (Object.entries(values).length === 3) {
         dispatch( setUser(values) );
-        //trackUser(values.userid);
-        //navigate("/begin");
+        trackUser(values.userid);
+        navigate("/begin");
       }
     }
   }

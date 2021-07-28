@@ -48,6 +48,7 @@ class EmailSubmitter extends Component {
     };
     const json = JSON.stringify(payload);
     fetch("https://api.mghcancergeneticsda.com/sendmail.php",
+    //fetch("http://mghdaemail.dr809.test/sendmail.php",
       {
         method: "post",
         headers: { 
@@ -70,6 +71,8 @@ class EmailSubmitter extends Component {
           message: "There was a problem and your email could not be sent"
         });
       });
+  /*
+    */
   }
 
   setEmail = (value) => {
@@ -99,7 +102,7 @@ class EmailSubmitter extends Component {
                 /> : "" 
               } 
             <div>
-              <Button variant="da rounded-pill" onClick={ () => this.sendEmail(this.props.site, this.props.data, this.state.email, this.props.notes) }>{ this.props.children }</Button>
+              <Button variant="da rounded-pill" onClick={ () => this.sendEmail(this.props.data, this.state.email, this.props.notes) }>{ this.props.children }</Button>
             </div>
           </div>      
         </Form>
