@@ -19,7 +19,7 @@ const TestDecision = ({ test, children }) => {
       path = "/choose-a-test";
     break;
     case "im":
-      field = "Next steps";
+      field = "Instead, you would like to";
       value = test.notReadyToDecide.length > 0 && test.notReadyToDecide.join(", ");
       path = "/its-your-decision";
     break;
