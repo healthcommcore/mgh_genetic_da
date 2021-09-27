@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-const SummaryContent = ({ user }) => {
+const SummaryContent = ({ user, children }) => {
   const test = user.test;
   const values = user.values;
   return (
@@ -44,6 +44,7 @@ const SummaryContent = ({ user }) => {
           );
         }}
       </TestDecision>
+      { children }
       <Card bsPrefix="card my-5 summary-email-card">
         <Card.Body>
           <Card.Text as="div">

@@ -26,10 +26,12 @@ const PageBody = ({ page, video, videoCaption, intro, outro, complexContent }) =
           <AccordionContent accordions={ accordions } />
         { 
           page === "summary" ?
-            <SummaryContent />
-          : ""
+            <SummaryContent>
+              <ContentModule content={ complexContent } />
+            </SummaryContent>
+          : 
+          <ContentModule content={ complexContent } />
         }
-        <ContentModule content={ complexContent } />
       </ContentContainer>
       <ValuesContent list={ values } />
       <ContentContainer>
