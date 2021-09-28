@@ -6,6 +6,7 @@ const TestDecision = ({ test, children }) => {
   const resp = test.doYouWantGeneticTest;
   const type = resp && abbreviate(resp);
   let field, value, path;
+  let testSelected = false;
   switch (type) {
     case "yes":
       if (!test.testTypes && test.notSureWhichTest.length > 0) {
@@ -15,6 +16,7 @@ const TestDecision = ({ test, children }) => {
       else {
         field = "Test type";
         value = test.testTypes || "no test selected";
+        testSelected = test.testTypes;
       }
       path = "/choose-a-test";
     break;
@@ -27,7 +29,7 @@ const TestDecision = ({ test, children }) => {
   }
   return (
     <>
-      { children(resp, field, value, path) }
+      { children(resp, field, value, path, testSelected) }
     </>
   );
 }
