@@ -83,8 +83,15 @@ export const query = graphql`
                   }
                   relationships {
                     field_button_destination {
-                      path {
-                        alias
+                      ... on node__article {
+                        path {
+                          alias
+                        }
+                      }
+                      ... on node__decision_aid_page {
+                        path {
+                          alias
+                        }
                       }
                     }
                   }

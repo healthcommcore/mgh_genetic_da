@@ -22,6 +22,16 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
+      allNodeArticle {
+        edges {
+          node {
+            id
+            path {
+              alias
+            }
+          }
+        }
+      }
     }
   `).then( (result) => {
     result.data.allNodeDecisionAidPage.edges.forEach( ({ node }) => {
