@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
+import DAModal from "./da-modal";
 import ValuesContent from "./values-content";
 import VideoContent from "../components/video-content";
 import SummaryContent from "./summary-content";
@@ -37,6 +38,9 @@ const PageBody = ({ page, video, videoCaption, intro, outro, complexContent }) =
       <ContentContainer>
       { exists(outro) ? <div className="intro-outro-content-margin">{ setHTML(outro.processed) } </div> : "" }
       </ContentContainer>
+      <DAModal title="Stop decision aid">
+        Are you sure you want to exit the decision aid?
+      </DAModal>
     </Container>
   );
 }
