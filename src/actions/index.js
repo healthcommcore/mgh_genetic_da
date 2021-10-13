@@ -93,6 +93,7 @@ export {
   advance, 
   retreat, 
   setNewCurrent, 
+  triggerModal,
   adminLogin,
   logout
 };

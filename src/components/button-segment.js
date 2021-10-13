@@ -11,6 +11,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setNewCurrent: (path) => {
       dispatch( setNewCurrent(path) );
+    },
+    triggerModal: () => {
+      dispatch( triggerModal() );
     }
   }
 }
@@ -19,6 +22,7 @@ const ButtonSegment = ({ content, setNewCurrent, triggerModal }) => {
 
   const setConfirm = (e) => {
     e.preventDefault();
+    triggerModal();
   }
 
   const path = content.relationships.field_button_destination && 

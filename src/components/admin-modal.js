@@ -13,7 +13,7 @@ const AdminModal = ({ showModal, showAlert, modalSubmit }) => {
   }
 
   return (
-    <Modal show={ showModal } backdrop="static">
+    <Modal show={ showModal } backdrop="static" centered>
       <Modal.Header>
         <Modal.Title>Admin login</Modal.Title>
       </Modal.Header>
