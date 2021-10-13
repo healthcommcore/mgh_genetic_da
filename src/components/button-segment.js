@@ -4,7 +4,7 @@ import Col from "react-bootstrap/Col";
 import NavButton from "./nav-button";
 import Arrow from "../images/button_segment_arrow.svg";
 import { connect } from "react-redux";
-import { setNewCurrent } from "../actions";
+import { setNewCurrent, triggerModal } from "../actions";
 import { setHTML } from "../helpers";
 
 const mapDispatchToProps = (dispatch) => {
@@ -15,7 +15,12 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const ButtonSegment = ({ content, setNewCurrent }) => {
+const ButtonSegment = ({ content, setNewCurrent, triggerModal }) => {
+
+  const setConfirm = (e) => {
+    e.preventDefault();
+  }
+
   const path = content.relationships.field_button_destination && 
     content.relationships.field_button_destination.path.alias;
   return (
@@ -35,7 +40,7 @@ const ButtonSegment = ({ content, setNewCurrent }) => {
             <NavButton
               className="btn-segment"
               path={ path }
-              onClick={ () => setNewCurrent(path) }
+              onClick={ (e) => path === "/stop" ? setConfirm(e) : setNewCurrent(path) }
             >
               { content.field_button_text }
             </NavButton>

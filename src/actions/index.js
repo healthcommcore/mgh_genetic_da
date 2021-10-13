@@ -45,6 +45,12 @@ const setNewCurrent = (path) => {
   }
 }
 
+const triggerModal = () => {
+  return {
+    type: `TRIGGER_MODAL`,
+  }
+}
+
 const advance = () => {
   return {
     type: `ADVANCE`,

@@ -8,7 +8,8 @@ const initialState = {
     previous: false,
     next: false
   },
-  menuItems: []
+  menuItems: [],
+  showModal: false
 }
 
 
@@ -45,6 +46,10 @@ const navigation = (state = initialState, action) => {
       return Object.assign(
         {}, state, 
         { navPaths: newNavPaths }
+      );
+    case `TRIGGER_MODAL`:
+      return Object.assign(
+        {}, state, { showModal: !state.showModal }
       );
     case `LOGOUT`:
       navMan.reset();
