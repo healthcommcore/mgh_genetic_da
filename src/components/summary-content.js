@@ -11,9 +11,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-const SummaryContent = ({ user }) => {
+const SummaryContent = ({ user, children }) => {
   const test = user.test;
   const values = user.values;
+  let showNextSteps = false;
   return (
     <>
       <h2>What's important to you?</h2>
@@ -33,13 +34,21 @@ const SummaryContent = ({ user }) => {
       <h2>Your decision</h2>
       <p>Here's what you decided to do next:</p>
       <TestDecision test={ test }>
-        { (resp, field, value, path) => {
+        { (resp, field, value, path, testSelected) => {
           return (
             <>
-              <p>Do you want genetic testing?<br />
-              <strong>{ resp }</strong></p>
-              <p>{ field }<br />
-              <strong>{ value }</strong></p>
+              <div className="test-decision">
+                <p>Do you want genetic testing?<br />
+                <strong>{ resp }</strong></p>
+                <p>{ field }<br />
+                <strong>{ value }</strong></p>
+              </div>
+              { 
+                testSelected && 
+                <div className="next-steps">
+                  { children }
+                </div>
+              }
             </>
           );
         }}

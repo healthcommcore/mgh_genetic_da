@@ -23,22 +23,15 @@ const PageBody = ({ page, video, videoCaption, intro, outro, complexContent }) =
       />
       <ContentContainer>
         { exists(intro) ? <div className="intro-outro-content-margin">{ setHTML(intro.processed) } </div> : "" }
-        { 
-          page === "choose-a-test" ?
-            <>
-              <AccordionContent accordions={ accordions.slice(0, -1) } />
-              <h2>Compare test options</h2>
-              <AccordionContent className="no-padding" accordions={ accordions.slice(-1) } />
-            </>
-          :
-            <AccordionContent accordions={ accordions } />
-        }
+          <AccordionContent accordions={ accordions } />
         { 
           page === "summary" ?
-            <SummaryContent />
-          : ""
+            <SummaryContent>
+              <ContentModule content={ complexContent } />
+            </SummaryContent>
+          : 
+          <ContentModule content={ complexContent } />
         }
-        <ContentModule content={ complexContent } />
       </ContentContainer>
       <ValuesContent list={ values } />
       <ContentContainer>

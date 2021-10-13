@@ -18,6 +18,7 @@ import { trackUser } from "gatsby-plugin-google-analytics";
 const mapDispatchToProps = (dispatch) => {
   return {
     setUser: (values) => {
+      console.log(values);
       if (Object.entries(values).length === 3) {
         dispatch( setUser(values) );
         trackUser(values.userid);
@@ -55,6 +56,9 @@ export const query = graphql`
       edges {
         node {
           name
+          path {
+            alias
+          }
         }
       }
     }

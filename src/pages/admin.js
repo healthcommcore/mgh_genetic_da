@@ -9,6 +9,7 @@ import ContentContainer from "../components/content-container";
 import SummaryValue from "../components/summary-value";
 import EmailSubmitter from "../components/email-submitter";
 import Footer from "../components/footer";
+import GoogleTranslate from "../components/google-translate";
 import { connect } from "react-redux";
 import { adminLogin, logout } from "../actions";
 import { navigate } from "gatsby";
@@ -50,6 +51,7 @@ const Admin = ({ isLoggedIn, showError, user, handleSubmit, handleLogout }) => {
         <div className="blue-bkgrd mb-5">
           <h1 className="ml-3">Admin area</h1>
         </div>
+        <GoogleTranslate />
         <h2>User info and test data</h2>
         <Card>
           <Card.Body>
