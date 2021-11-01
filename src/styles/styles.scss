@@ -552,6 +552,24 @@ footer {
   }
 }
 
+.pancreatic {
+  .ovarian-specific {
+    display: none;
+  }
+  .pancreatic-specific {
+    display: inline;
+  }
+}
+
+.ovarian {
+  .ovarian-specific {
+    display: inline;
+  }
+  .pancreatic-specific {
+    display: none;
+  }
+}
+
 a {
   color: $orange;
 }

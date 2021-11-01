@@ -1,11 +1,18 @@
 import React from "react";
+import { connect } from "react-redux";
 import Card from "react-bootstrap/Card";
 import Fade from "react-bootstrap/Fade";
 import { getContent } from "../helpers";
 import HideShowContentModule from "./hide-show-content-module";
 import ContentModuleSegment from "./content-module-segment";
 
-const ContentModule = ({ content }) => {
+const mapStateToProps = (state) => {
+  return {
+    cancerType: state.user.cancerType
+  }
+}
+
+const ContentModule = ({ content, cancerType }) => {
   let modules = content.field_content_module;
   let hideShowContent = [];
   if (modules.length > 0 && modules[0].field_module_title) {
@@ -17,8 +24,15 @@ const ContentModule = ({ content }) => {
     return (
       <>
         { modules.map( (module, i) => {
+          const hasCancerName = module.relationships.field_cancer_type;
+          let correctCancer = false;
+          if (hasCancerName) {
+            const cancerName = hasCancerName.name;
+            correctCancer = (cancerName === cancerType);
+          }
           const segments = module.relationships.field_content_segment;
-          return (
+          console.log(module, correctCancer);
+          return (!hasCancerName || correctCancer) && (
             <Card key={ i } bsPrefix="card content-module">
               <Card.Body>
                 <Card.Title>{ module.field_module_title }</Card.Title>
@@ -41,4 +55,4 @@ const ContentModule = ({ content }) => {
   return <></>;
 }
 
-export default ContentModule;
+export default connect(mapStateToProps, null)(ContentModule);

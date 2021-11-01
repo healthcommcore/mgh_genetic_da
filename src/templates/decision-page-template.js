@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { graphql } from "gatsby";
 import Header from "../components/header";
 import GoogleTranslate from "../components/google-translate";
@@ -11,12 +12,17 @@ import ButtonsContainer from "../containers/buttons-container";
 import Footer from "../components/footer";
 
 
+const mapStateToProps = (state) => {
+  return {
+    cancerType: state.user.cancerType.toLowerCase()
+  }
+}
 
-const DecisionPageTemplate = ({ data }) => {
+const DecisionPageTemplate = ({ data, cancerType }) => {
   const node = data.nodeDecisionAidPage;
 
   return (
-    <Layout className="decision-page">
+    <Layout className={ `decision-page ${ cancerType }` }>
       <Header />
       <NavContainer />
 			<GoogleTranslate />
@@ -71,6 +77,9 @@ export const query = graphql`
           field_module_title
           field_should_be_hidden
           relationships {
+            field_cancer_type {
+              name
+            }
             field_it_s_your_choice_label {
               name
             }
@@ -133,4 +142,4 @@ export const query = graphql`
   }
 `
 
-export default DecisionPageTemplate;
+export default connect(mapStateToProps, null)(DecisionPageTemplate);
