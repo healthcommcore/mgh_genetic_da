@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import Container from "react-bootstrap/Container";
 import DAModal from "./da-modal";
 import ValuesContent from "./values-content";
@@ -9,7 +10,13 @@ import ContentModule from "./content-module";
 import ContentContainer from "./content-container";
 import { setHTML, exists, getContent } from "../helpers";
 
-const PageBody = ({ page, video, videoCaption, intro, outro, complexContent }) => {
+const mapStateToProps = (state) => {
+  return {
+    cancer: state.user.cancerType
+  }
+}
+
+const PageBody = ({ page, video, videoCaption, intro, outro, complexContent, cancer }) => {
   const accordions = getContent(complexContent, "field_accordions", "field_accordion_heading");
   const values = getContent(complexContent, "field_values", "field_value_heading");
   const vidUrl = getContent(video, "field_video");
@@ -18,9 +25,10 @@ const PageBody = ({ page, video, videoCaption, intro, outro, complexContent }) =
   return (
     <Container>
       <VideoContent 
-        video={ vidUrl } 
+        videoArr={ vidUrl } 
         caption={ videoCaption } 
         placeholder={ vidPlaceholder }
+        cancer={ cancer }
       />
       <ContentContainer>
         { exists(intro) ? <div className="intro-outro-content-margin">{ setHTML(intro.processed) } </div> : "" }
@@ -45,4 +53,4 @@ const PageBody = ({ page, video, videoCaption, intro, outro, complexContent }) =
   );
 }
 
-export default PageBody;
+export default connect(mapStateToProps, null)(PageBody);
