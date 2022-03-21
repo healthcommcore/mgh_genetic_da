@@ -24,7 +24,7 @@ i, em {
 }
 
 strong {
-  font-weight: $med;
+  font-weight: $semi;
 }
 
 // Begin end content
@@ -154,6 +154,15 @@ h3.values-scale-heading {
   font-weight: $reg;
   font-size: 1.3rem;
   line-height: 1.1em;
+}
+
+// Choose a test
+.test-explanation {
+  h6 {
+    font-family: $frank;
+    font-weight: $semi;
+    font-size: 1.2rem;
+  }
 }
 
 // Summary
